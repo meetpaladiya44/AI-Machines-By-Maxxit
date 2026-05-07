@@ -143,21 +143,21 @@ export function HowItWorks() {
             }
           );
 
-          /* Image parallax */
+          /* Image parallax (keep subtle to avoid cropping) */
           const img = el.querySelector("[data-parallax]");
           if (img) {
             gsap.fromTo(
               img,
-              { y: 40, scale: 1.08 },
+              { y: 16, scale: 1.03 },
               {
-                y: -40,
+                y: -16,
                 scale: 1,
                 ease: "none",
                 scrollTrigger: {
                   trigger: el,
                   start: "top bottom",
                   end: "bottom top",
-                  scrub: 0.5,
+                  scrub: 0.45,
                 },
               }
             );
@@ -335,7 +335,10 @@ export function HowItWorks() {
                       )}
                     >
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-50">
-                        <div data-parallax className="absolute inset-0">
+                        <div
+                          data-parallax={step.step === 3 ? undefined : true}
+                          className="absolute inset-0"
+                        >
                           <Image
                             src={step.img}
                             alt={step.alt}

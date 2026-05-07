@@ -19,7 +19,6 @@ const HIGHLIGHTS = [
 const TRUSTED_INTEGRATIONS = [
   { name: "WhatsApp", img: "/images/whatsapp.png" },
   { name: "Tally", img: "/images/tally-logo-black.svg" },
-  { name: "OpenClaw", img: "/images/openclaw.jpg" },
 ];
 export function Hero() {
   return (

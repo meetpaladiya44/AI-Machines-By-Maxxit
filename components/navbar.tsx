@@ -29,9 +29,9 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "fixed inset-x-0 top-0 z-100 isolate w-full border-b border-zinc-900 transition-all duration-300",
         scrolled
-          ? "border-b border-zinc-200/70 bg-white/80 backdrop-blur-xl"
+          ? "border-zinc-600 bg-white/80 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >

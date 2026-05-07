@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className="min-h-dvh font-sans antialiased">
         <DemoModalProvider>
           <Navbar />
-          {children}
+          <div className="pt-16">{children}</div>
           <Footer />
         </DemoModalProvider>
       </body>

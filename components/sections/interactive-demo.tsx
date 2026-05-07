@@ -25,13 +25,7 @@ const CHAT: { role: "client" | "ai"; id: string; content: React.ReactNode }[] =
       role: "client",
       id: "msg-3",
       content:
-        "Okay, I want to post all these invoices as Accounting Invoice in my tally's XYZ solutions. I want them to be posted for the date of 1st Feb 2026. Please read the skill carefully before posting. You can check the company details from tally.",
-    },
-    {
-      role: "client",
-      id: "msg-4",
-      content:
-        "📂 Folder upload: C:\\Users\\username\\.openclaw\\workspace\\XYZ Solutions",
+        "I have created one folder of Maxxit-Traders-Purchases in this workspace so can you please post all the purchase voucher in tally ? I want them to be posted for the date of 1st Feb 2026 as Accounting Invoice. You can check the company details from tally.",
     },
     {
       role: "ai",
@@ -45,7 +39,7 @@ const CHAT: { role: "client" | "ai"; id: string; content: React.ReactNode }[] =
             </span>{" "}
             mode for{" "}
             <span className="font-semibold text-emerald-700">
-              XYZ solutions
+              Maxxit Traders
             </span>{" "}
             with voucher date{" "}
             <span className="font-mono text-xs font-semibold text-emerald-700">
@@ -134,7 +128,7 @@ export function InteractiveDemo() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {/* WhatsApp column */}
           <Reveal delay={0.05}>
-            <div className="flex h-[580px] flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-[0_24px_50px_-28px_rgba(15,23,42,0.2)] lg:h-[680px]">
+            <div className="flex h-[580px] flex-col overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-[0_24px_50px_-28px_rgba(15,23,42,0.2)] lg:h-[580px]">
               <div className="flex items-center gap-3 border-b border-zinc-100 bg-zinc-50/80 px-4 py-3">
                 <div className="relative h-9 w-9 overflow-hidden rounded-xl bg-black ring-1 ring-zinc-200">
                   <Image
@@ -160,7 +154,7 @@ export function InteractiveDemo() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.35 }}
                     className={cn(
-                      "max-w-[92%] rounded-2xl px-3 py-2 text-sm shadow-sm",
+                      "max-w-[92%] rounded-2xl px-3 py-2 text-sm shadow-sm wrap-anywhere",
                       m.role === "client"
                         ? "ml-auto bg-[#DCF8C6] text-zinc-900"
                         : "mr-auto bg-white text-zinc-800",
@@ -175,7 +169,7 @@ export function InteractiveDemo() {
 
           {/* AI column */}
           <Reveal delay={0.1}>
-            <div className="flex h-[580px] flex-col justify-between rounded-3xl border border-zinc-200/80 bg-white p-6 shadow-[0_24px_50px_-28px_rgba(15,23,42,0.2)] lg:h-[680px]">
+            <div className="flex h-[580px] flex-col justify-between rounded-3xl border border-zinc-200/80 bg-white p-6 shadow-[0_24px_50px_-28px_rgba(15,23,42,0.2)] lg:h-[580px]">
               <div>
                 <div className="flex items-center gap-3">
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl ring-1 ring-zinc-200">
@@ -194,8 +188,8 @@ export function InteractiveDemo() {
                         by Maxxit
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-zinc-500">
-                      <Loader2 className="h-3.5 w-3.5 animate-spin text-emerald-600 mt-2" />
+                    <div className="flex items-center gap-1 text-xs text-zinc-500 mt-2">
+                      <Loader2 className="h-3.5 w-3.5 animate-spin text-emerald-600" />
                       Processing pipeline
                     </div>
                   </div>
@@ -262,7 +256,7 @@ export function InteractiveDemo() {
 
           {/* Tally + PDF column */}
           <Reveal delay={0.15}>
-            <div className="flex h-[580px] flex-col gap-4 sm:col-span-2 lg:col-span-1 lg:h-[680px]">
+            <div className="flex h-[580px] flex-col gap-4 sm:col-span-2 lg:col-span-1 lg:h-[580px]">
               <motion.div
                 layout
                 className={cn(
@@ -291,7 +285,7 @@ export function InteractiveDemo() {
                   <div className="flex justify-between gap-4 border-b border-zinc-100 py-3">
                     <dt className="text-zinc-500">Party</dt>
                     <dd className="text-right font-medium text-zinc-900">
-                      XYZ Solutions{" "}
+                      Maxxit Traders{" "}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-4 border-b border-zinc-100 py-3">
