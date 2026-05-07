@@ -18,8 +18,8 @@ export default function HomePage() {
       <IdealFor />
       <Problem />
       <Solution />
-      {/* <HowItWorks /> */}
-      {/* <Features /> */}
+      <HowItWorks />
+      <Features />
       <InteractiveDemo />
       <Benefits />
       <Security />

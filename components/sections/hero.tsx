@@ -78,14 +78,14 @@ export function Hero() {
           </Reveal>
 
           <Reveal direction="up" delay={0.15}>
-            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+            <ul className="mt-6 grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
               {HIGHLIGHTS.map((h) => (
                 <li
                   key={h}
-                  className="inline-flex items-center gap-1.5 text-sm text-zinc-700"
+                  className="flex items-start gap-2 text-sm leading-snug text-zinc-700"
                 >
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
-                  {h}
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                  <span>{h}</span>
                 </li>
               ))}
             </ul>

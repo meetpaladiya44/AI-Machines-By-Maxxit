@@ -1,12 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
+import { BookDemoButton } from "@/components/ui/book-demo-button";
 
 const COLUMNS = [
   {
     title: "Product",
     links: [
-      // { label: "How it works", href: "#how-it-works" },
-      // { label: "Features", href: "#features" },
+      { label: "How it works", href: "#how-it-works" },
+      { label: "Features", href: "#features" },
       { label: "Interactive demo", href: "#demo" },
       { label: "Benefits", href: "#benefits" },
     ],
@@ -26,7 +29,7 @@ const COLUMNS = [
       { label: "FAQ", href: "#faq" },
       { label: "Security", href: "#security" },
       { label: "Testimonials", href: "#testimonials" },
-      { label: "Book a demo", href: "#cta" },
+      { label: "Book a demo", href: "#book-demo" },
     ],
   },
 ];
@@ -52,12 +55,22 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
-                  >
-                    {l.label}
-                  </Link>
+                  {l.label.toLowerCase() === "book a demo" ? (
+                    <BookDemoButton
+                      size="sm"
+                      variant="ghost"
+                      className="h-auto px-0 py-0 text-sm font-normal text-zinc-600 hover:bg-transparent hover:text-zinc-900"
+                    >
+                      {l.label}
+                    </BookDemoButton>
+                  ) : (
+                    <Link
+                      href={l.href}
+                      className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
+                    >
+                      {l.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
