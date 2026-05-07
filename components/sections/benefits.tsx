@@ -89,12 +89,12 @@ export function Benefits() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {STATS.map((s, i) => {
             const Icon = s.icon;
             return (
               <Reveal key={s.label} delay={i * 0.05}>
-                <Card>
+                <Card className="flex h-full flex-col">
                   <CardIcon tone={s.tone}>
                     <Icon className="h-5 w-5" />
                   </CardIcon>
@@ -109,6 +109,7 @@ export function Benefits() {
                     {s.label}
                   </p>
                   <p className="mt-1.5 text-sm text-zinc-600">{s.sub}</p>
+                  <div className="mt-auto" />
                 </Card>
               </Reveal>
             );

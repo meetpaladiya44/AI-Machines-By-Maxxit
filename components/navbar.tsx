@@ -9,8 +9,8 @@ import { BookDemoButton } from "@/components/ui/book-demo-button";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
+  // { label: "How it works", href: "#how-it-works" },
+  // { label: "Features", href: "#features" },
   { label: "Demo", href: "#demo" },
   { label: "FAQ", href: "#faq" },
 ];

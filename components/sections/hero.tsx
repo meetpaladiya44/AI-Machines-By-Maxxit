@@ -12,6 +12,7 @@ const HIGHLIGHTS = [
   "WhatsApp-first workflow",
   "Direct Tally integration",
   "AI invoice & PDF reading",
+  "Bulk sales-invoice PDF export (TDL add-on)",
   "Runs on your machine — not the cloud",
 ];
 
@@ -39,13 +40,13 @@ export function Hero() {
             <h1 className="mt-5 text-pretty text-4xl font-semibold leading-[1.05] tracking-tight text-zinc-900 sm:text-5xl lg:text-[45px]">
               Automate accounting entries from{" "}
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-emerald-600 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">
                   WhatsApp
                 </span>
               </span>{" "}
               to{" "}
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-violet-600 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-violet-600 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
                   Tally
                 </span>
                 <svg
@@ -71,7 +72,8 @@ export function Hero() {
               Send invoices, bills, receipts, PDFs, or images on WhatsApp. Our
               on-device AI agent reads, understands, and creates accurate
               accounting entries directly in Tally — data stays on your firm&apos;s
-              hardware — and gives you exportable reports instantly.
+              hardware — and gives you exportable reports instantly (including
+              bulk sales-invoice PDF exports via our TDL add-on).
             </p>
           </Reveal>
 
@@ -95,9 +97,9 @@ export function Hero() {
                 Book a Demo
                 <ArrowRight className="h-4 w-4" />
               </BookDemoButton>
-              <Button href="#how-it-works" variant="secondary" size="lg">
+              <Button href="#demo" variant="secondary" size="lg">
                 <PlayCircle className="h-4 w-4" />
-                See How It Works
+                See Demo
               </Button>
             </div>
           </Reveal>

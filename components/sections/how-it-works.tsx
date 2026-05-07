@@ -21,7 +21,7 @@ const STEPS = [
   {
     step: 2,
     title: "AI reads and extracts data",
-    desc: "AI Machines by Maxxit parses vendors, amounts, GST, dates, and voucher context with OCR and language models.",
+    desc: "AI Machines by Maxxit parses vendors, amounts, GST, dates, and voucher context using LLM-based document understanding.",
     icon: ScanSearch,
     tone: "violet" as const,
   },

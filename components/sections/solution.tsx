@@ -20,7 +20,7 @@ const STEPS = [
   {
     icon: ScanLine,
     title: "AI reads the document",
-    desc: "OCR + LLM extracts every line: vendor, GSTIN, date, amounts, taxes, voucher type.",
+    desc: "LLM-based document understanding extracts every line: vendor, GSTIN, date, amounts, taxes, and voucher type.",
   },
   {
     icon: Brain,

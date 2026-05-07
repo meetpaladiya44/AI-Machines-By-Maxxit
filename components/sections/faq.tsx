@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "Can it read PDFs and images?",
-    a: "Both. OCR handles scans and phone photos while document AI understands invoices, receipts, debit notes, and multi-page attachments so you rarely retype descriptions.",
+    a: "Both. LLM-based document understanding handles scans and phone photos, and understands invoices, receipts, debit notes, and multi-page attachments so you rarely retype descriptions.",
   },
   {
     q: "Can CA firms manage multiple clients?",
@@ -33,7 +33,11 @@ const FAQS = [
   },
   {
     q: "Can reports be exported as PDFs?",
-    a: "Yes — once vouchers are validated you can burst purchase/sales registers, party ledgers, and management packs straight to branded PDF downloads from your AI Machines dashboard.",
+    a: "Yes — once vouchers are validated you can export registers, party ledgers, and management packs to branded PDFs. For sales invoices specifically, we also support bulk PDF exports via our TDL add-on (Tally’s default export is typically one PDF at a time).",
+  },
+  {
+    q: "Can I export multiple sales invoice PDFs in bulk?",
+    a: "Yes. We built a Tally add-on in TDL (Tally Definition Language) that enables bulk sales-invoice PDF exports — ideal for month-end packs, audit requests, and client sharing without exporting invoices one by one.",
   },
 ];
 
@@ -90,7 +94,7 @@ export function Faq() {
                     aria-hidden={!isOpen}
                     className={cn(
                       "border-t border-zinc-100 px-5 text-sm leading-relaxed text-zinc-600 transition-[max-height,padding]",
-                      isOpen ? "max-h-[28rem] py-4" : "max-h-0 overflow-hidden py-0",
+                      isOpen ? "max-h-112 py-4" : "max-h-0 overflow-hidden py-0",
                     )}
                   >
                     {item.a}

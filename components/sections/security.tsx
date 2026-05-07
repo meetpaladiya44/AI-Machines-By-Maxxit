@@ -1,4 +1,4 @@
-import { LockKeyhole, Building2, Users2, BadgeCheck, ServerCog } from "lucide-react";
+import { LockKeyhole, Building2, BadgeCheck, ServerCog, HardDrive } from "lucide-react";
 import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -17,14 +17,14 @@ const ITEMS = [
     tone: "violet" as const,
   },
   {
-    title: "Controlled access",
-    desc: "Administrators invite teammates, revoke access instantly, and keep firm-wide permissions as the integration boundary.",
-    icon: Users2,
+    title: "On-prem by design (no cloud exposure)",
+    desc: "Documents and extracted accounting data stay on your local system — nothing needs to be sent to third‑party cloud servers to run the workflow.",
+    icon: HardDrive,
     tone: "sky" as const,
   },
   {
-    title: "Human review on demand",
-    desc: "Escalations land with your reviewers before posting — automation handles speed, humans hold the pen.",
+    title: "Human-in-the-loop, like your normal workflow",
+    desc: "Your team reviews what the agent drafts and catches anything incorrect before it’s finalised in Tally — the same checks you already do, just faster.",
     icon: BadgeCheck,
     tone: "rose" as const,
   },
@@ -56,12 +56,12 @@ export function Security() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (
               <Reveal key={item.title} delay={i * 0.05}>
-                <Card>
+                <Card className="flex h-full flex-col">
                   <CardIcon tone={item.tone}>
                     <Icon className="h-5 w-5" />
                   </CardIcon>
@@ -71,6 +71,7 @@ export function Security() {
                   <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                     {item.desc}
                   </p>
+                  <div className="mt-auto" />
                 </Card>
               </Reveal>
             );

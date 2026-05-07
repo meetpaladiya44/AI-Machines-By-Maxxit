@@ -37,7 +37,7 @@ const FEATURES: FeatureItem[] = [
   },
   {
     title: "PDF and image invoice reading",
-    desc: "Scanned bills, phone photos, and multi-page PDFs are parsed with layout-aware OCR.",
+    desc: "Scanned bills, phone photos, and multi-page PDFs are parsed with LLM-based document understanding.",
     icon: FileText,
     tone: "violet" as const,
   },
@@ -81,7 +81,7 @@ const FEATURES: FeatureItem[] = [
   },
   {
     title: "Auto-generated PDFs and reports",
-    desc: "Export day books, party statements, and reconciliation packs without retyping anything.",
+    desc: "Export day books, party statements, and reconciliation packs — plus bulk sales-invoice PDFs via our TDL add-on (beyond Tally’s one-by-one export).",
     icon: FileOutput,
     tone: "violet" as const,
   },
@@ -108,7 +108,7 @@ const FEATURES: FeatureItem[] = [
 export function Features() {
   return (
     <section id="features" className="relative py-20 sm:py-24">
-      <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-gradient-to-b from-violet-50/50 via-white to-transparent" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-linear-to-b from-violet-50/50 via-white to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
