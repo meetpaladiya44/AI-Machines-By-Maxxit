@@ -4,6 +4,7 @@ import { Problem } from "@/components/sections/problem";
 import { Solution } from "@/components/sections/solution";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { Features } from "@/components/sections/features";
+import { InvoiceGeneration } from "@/components/sections/invoice-generation";
 import { InteractiveDemo } from "@/components/sections/interactive-demo";
 import { Benefits } from "@/components/sections/benefits";
 import { Security } from "@/components/sections/security";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Solution />
       <HowItWorks />
       <Features />
+      <InvoiceGeneration />
       <InteractiveDemo />
       <Benefits />
       <Security />

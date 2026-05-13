@@ -70,3 +70,28 @@ body {
   animation: aiGlowShift 2.6s ease-in-out infinite alternate;
 }
 
+/* ---- Invoice generation section: lightweight CSS animations ---- */
+
+@keyframes float {
+  0%, 100% { transform: translateY(-8px); opacity: 0.18; }
+  50%      { transform: translateY(8px);  opacity: 0.5;  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes beamShimmer {
+  0%   { top: -32px; }
+  100% { top: 80px;  }
+}
+.animate-beam-shimmer {
+  animation: beamShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1);    }
+  50%      { transform: scale(1.06); }
+}
+.animate-gentle-pulse {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
