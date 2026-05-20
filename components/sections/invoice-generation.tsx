@@ -2,12 +2,11 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   FileText,
   MessageSquareText,
   ArrowRight,
-  Sparkles,
   Zap,
   Clock,
   Shield,
@@ -49,62 +48,6 @@ function FloatingParticles() {
           }}
         />
       ))}
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Animated connecting beam between panels                            */
-/* ------------------------------------------------------------------ */
-
-/* CSS-only connecting beam — zero JS animation overhead */
-function ConnectingBeam({ active }: { active: boolean }) {
-  return (
-    <div className="relative z-10 hidden items-center justify-center lg:flex">
-      <div className="relative flex flex-col items-center gap-3">
-        {/* Top beam line with CSS shimmer */}
-        <div
-          className="relative h-20 w-0.5 overflow-hidden rounded-full"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(139,92,246,0.1), rgba(139,92,246,0.4), rgba(16,185,129,0.4), rgba(16,185,129,0.1))",
-          }}
-        >
-          {active && (
-            <div className="absolute left-0 h-8 w-full rounded-full bg-gradient-to-b from-transparent via-white to-transparent animate-beam-shimmer" />
-          )}
-        </div>
-
-        {/* Center icon */}
-        <div
-          className={cn(
-            "flex h-14 w-14 items-center justify-center rounded-2xl border shadow-lg transition-all duration-500",
-            active
-              ? "border-emerald-300 bg-gradient-to-br from-emerald-50 to-violet-50 shadow-emerald-200/50 animate-gentle-pulse"
-              : "border-zinc-200 bg-white shadow-zinc-200/30"
-          )}
-        >
-          <Sparkles
-            className={cn(
-              "h-6 w-6 transition-colors duration-500",
-              active ? "text-emerald-600" : "text-zinc-400"
-            )}
-          />
-        </div>
-
-        {/* Bottom beam line with CSS shimmer */}
-        <div
-          className="relative h-20 w-0.5 overflow-hidden rounded-full"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(16,185,129,0.1), rgba(16,185,129,0.4), rgba(139,92,246,0.4), rgba(139,92,246,0.1))",
-          }}
-        >
-          {active && (
-            <div className="absolute left-0 h-8 w-full rounded-full bg-gradient-to-b from-transparent via-white to-transparent animate-beam-shimmer [animation-delay:0.75s]" />
-          )}
-        </div>
-      </div>
     </div>
   );
 }
@@ -152,7 +95,6 @@ function StatPill({
 export function InvoiceGeneration() {
   const reduce = useReducedMotion();
   const sectionRef = React.useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { amount: 0.2, once: false });
 
   /* ---- GSAP dramatic scroll-scrubbed 3D card entrance ---- */
   const leftCardRef = React.useRef<HTMLDivElement>(null);
@@ -261,20 +203,20 @@ export function InvoiceGeneration() {
               Text in, professional invoice out — in seconds
             </h2>
             <p className="mt-3 text-balance text-zinc-600">
-              Just describe your invoice in plain text via Telegram. Our AI agent
-              parses every detail and generates a polished, GST-compliant PDF
-              invoice — ready to share or print.
+              Share sales voucher or invoice details on WhatsApp. Our AI agent
+              parses every field and posts clean, GST-ready entries directly in
+              Tally.
             </p>
           </div>
         </Reveal>
 
-        {/* ---- Main showcase: split panels with connecting beam ---- */}
+        {/* ---- Main showcase: WhatsApp inputs above, generated PDF below ---- */}
         <div
           ref={panelsWrapRef}
-          className="mt-16 grid items-center gap-6 lg:grid-cols-[1fr,auto,1fr] lg:gap-0"
+          className="mt-16 grid items-start gap-6 lg:grid-cols-2"
           style={{ perspective: "1200px" }}
         >
-          {/* LEFT PANEL — Telegram prompt */}
+          {/* LEFT PANEL — Sales voucher entry */}
           <div ref={leftTriggerRef}>
           <div ref={leftCardRef} style={{ transformStyle: "preserve-3d" }}>
             <div className="group relative">
@@ -292,10 +234,10 @@ export function InvoiceGeneration() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-zinc-900">
-                      Telegram Prompt
+                      Sales Voucher Entry
                     </div>
                     <div className="text-[11px] text-zinc-500">
-                      Send invoice details as plain text
+                      WhatsApp prompt posted to Tally
                     </div>
                   </div>
                   <div className="ml-auto">
@@ -307,14 +249,13 @@ export function InvoiceGeneration() {
                 </div>
 
                 {/* Image */}
-                <div className="relative w-full bg-zinc-50">
+                <div className="relative aspect-[16/10] w-full bg-zinc-950">
                   <Image
-                    src="/images/PDF-Telegram-Prompt.png"
-                    alt="Telegram chat showing invoice generation prompt with party name, invoice number, date, items, quantities, rates, HSN codes and amounts"
-                    width={800}
-                    height={900}
+                    src="/images/Sales-Voucher-Entry.png"
+                    alt="WhatsApp chat showing AI Agent by Maxxit posting invoice data as a Sales Voucher in ABC Traders"
+                    fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="h-auto w-full"
+                    className="object-contain"
                     priority
                   />
                 </div>
@@ -322,11 +263,11 @@ export function InvoiceGeneration() {
                 {/* Footer */}
                 <div className="flex items-center justify-between border-t border-zinc-100 px-5 py-3">
                   <span className="text-xs font-medium text-zinc-500">
-                    Step 1 · Send prompt
+                    Step 1 · Send sales voucher details
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-50 px-2.5 py-0.5 text-[11px] font-semibold text-violet-700 ring-1 ring-inset ring-violet-600/15">
                     <MessageSquareText className="h-3 w-3" />
-                    Input
+                    WhatsApp
                   </span>
                 </div>
               </div>
@@ -334,23 +275,7 @@ export function InvoiceGeneration() {
           </div>
           </div>
 
-          {/* CENTER — Connecting beam (desktop) */}
-          <ConnectingBeam active={inView} />
-
-          {/* Mobile arrow */}
-          <div className="flex items-center justify-center py-2 lg:hidden">
-            <motion.div
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-violet-50 text-emerald-600 shadow-sm"
-              animate={
-                reduce ? undefined : { y: [0, -4, 0] }
-              }
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ArrowRight className="h-5 w-5 rotate-90 lg:rotate-0" />
-            </motion.div>
-          </div>
-
-          {/* RIGHT PANEL — Generated PDF */}
+          {/* RIGHT PANEL — Sales invoice generation */}
           <div ref={rightTriggerRef}>
           <div ref={rightCardRef} style={{ transformStyle: "preserve-3d" }}>
             <div className="group relative">
@@ -368,29 +293,28 @@ export function InvoiceGeneration() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-zinc-900">
-                      Generated PDF Invoice
+                      Sales Invoice Generation
                     </div>
                     <div className="text-[11px] text-zinc-500">
-                      GST-compliant, ready to share
+                      Invoice workflow handled by AI
                     </div>
                   </div>
                   <div className="ml-auto">
                     <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-600/15">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                      PDF
+                      Tally
                     </span>
                   </div>
                 </div>
 
                 {/* Image */}
-                <div className="relative w-full bg-zinc-50">
+                <div className="relative aspect-[16/10] w-full bg-zinc-950">
                   <Image
-                    src="/images/PDF-Generated.png"
-                    alt="Generated PDF tax invoice showing Maxxit Traders company, Maxxit Builders party, invoice details, item table with PQR Cement, HSN code, quantities, rates, GST calculations and grand total"
-                    width={800}
-                    height={900}
+                    src="/images/Sales-Invoice-Generation.png"
+                    alt="AI Agent by Maxxit sales invoice generation workflow screenshot"
+                    fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="h-auto w-full"
+                    className="object-contain"
                     priority
                   />
                 </div>
@@ -398,7 +322,7 @@ export function InvoiceGeneration() {
                 {/* Footer */}
                 <div className="flex items-center justify-between border-t border-zinc-100 px-5 py-3">
                   <span className="text-xs font-medium text-zinc-500">
-                    Step 2 · Invoice generated
+                    Step 2 · Sales invoice generated
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-600/15">
                     <FileText className="h-3 w-3" />
@@ -410,6 +334,69 @@ export function InvoiceGeneration() {
           </div>
           </div>
         </div>
+
+        <div className="mt-8 flex items-center justify-center">
+          <motion.div
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-violet-50 text-emerald-600 shadow-sm"
+            animate={reduce ? undefined : { y: [0, -4, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ArrowRight className="h-5 w-5 rotate-90" />
+          </motion.div>
+        </div>
+
+        <Reveal delay={0.12}>
+          <div className="mx-auto mt-8 max-w-4xl">
+            <div className="group relative">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-3 rounded-[28px] bg-gradient-to-br from-emerald-200/40 via-violet-200/30 to-sky-200/20 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+              />
+
+              <div className="relative overflow-hidden rounded-3xl border border-zinc-200/80 bg-white shadow-[0_28px_60px_-24px_rgba(15,23,42,0.18)] transition-all duration-500 hover:shadow-[0_32px_70px_-24px_rgba(16,185,129,0.22)]">
+                <div className="flex items-center gap-3 border-b border-zinc-100 bg-gradient-to-r from-emerald-50/80 to-violet-50/70 px-5 py-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 ring-1 ring-inset ring-emerald-500/20">
+                    <FileText className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-zinc-900">
+                      Generated PDF Invoice
+                    </div>
+                    <div className="text-[11px] text-zinc-500">
+                      Clean, share-ready invoice output
+                    </div>
+                  </div>
+                  <div className="ml-auto">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-600/15">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      PDF
+                    </span>
+                  </div>
+                </div>
+
+                <div className="relative aspect-[16/10] w-full bg-zinc-50">
+                  <Image
+                    src="/images/Sales_PDF_Generated.png"
+                    alt="Generated PDF tax invoice showing invoice details, item table, GST calculations and grand total"
+                    fill
+                    sizes="(min-width: 1024px) 70vw, 100vw"
+                    className="object-contain"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between border-t border-zinc-100 px-5 py-3">
+                  <span className="text-xs font-medium text-zinc-500">
+                    Step 3 · PDF ready to share
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-600/15">
+                    <FileText className="h-3 w-3" />
+                    PDF output
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
         {/* ---- Stats row ---- */}
         <div className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
@@ -446,12 +433,12 @@ export function InvoiceGeneration() {
               {[
                 {
                   title: "Natural language input",
-                  desc: "No forms, no templates. Just type your invoice details as you would describe them to a colleague.",
+                  desc: "No forms, no templates. Just send sales voucher or invoice details on WhatsApp in plain language.",
                   gradient: "from-violet-500 to-indigo-500",
                 },
                 {
-                  title: "Instant PDF output",
-                  desc: "The AI agent parses your text, maps ledgers and tax rates, and delivers a professional PDF in seconds.",
+                  title: "Instant Tally posting",
+                  desc: "The AI agent parses your text, maps ledgers, items, quantities and tax rates, then posts the entry.",
                   gradient: "from-emerald-500 to-teal-500",
                 },
                 {
