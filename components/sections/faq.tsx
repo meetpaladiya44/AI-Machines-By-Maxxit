@@ -8,36 +8,52 @@ import { cn } from "@/lib/utils";
 
 const FAQS = [
   {
-    q: "How does WhatsApp accounting automation work?",
-    a: "Your clients send PDFs or photos through WhatsApp. AI Machines by Maxxit ingests those messages securely on your hardware, extracts voucher-ready data, and the connector posts drafts into your Tally company files. Approved vouchers sync instantly; exporters generate PDF summaries on demand.",
+    q: "How does Maxxit Tally Software work?",
+    a: "You import documents — purchase invoices, sales invoices, or bank statements — via Bulk Upload or optionally through the Client Agent. AI reads and extracts accounting fields. MCP tools match parties and ledgers against your live Tally data. You review everything in a structured workspace, then post to TallyPrime in one click.",
   },
   {
-    q: "Does it support Tally?",
-    a: "Yes — AI Machines by Maxxit is optimised for practitioners who rely on TallyPrime (or ERP 9 setups still in-market). Entries land with the narration, ledger splits, taxes, and supporting references your books expect.",
+    q: "What document types are supported?",
+    a: "Three core types: purchase invoices (Purchase vouchers), sales invoices (Sales vouchers), and bank statements (Payment, Receipt, and Contra vouchers line by line). Spreadsheet rows containing invoice or bank data are also supported.",
   },
   {
-    q: "Can it read PDFs and images?",
-    a: "Both. LLM-based document understanding handles scans and phone photos, and understands invoices, receipts, debit notes, and multi-page attachments so you rarely retype descriptions.",
+    q: "What file formats can I upload?",
+    a: "PDF, JPG/JPEG, PNG, XLS, XLSX, and CSV. The Client Agent accepts PDFs and images via messaging.",
   },
   {
-    q: "Can CA firms manage multiple clients?",
-    a: "Each client workspace keeps routing rules separate. Permissions control which staff can approve or post vouchers, letting partners scale without risking cross-posting.",
+    q: "Does it work with TallyPrime?",
+    a: "Yes. Maxxit Tally is built as a companion for TallyPrime. Open a company, enable connectivity, and the app connects automatically. Entries land with correct narration, ledger splits, taxes, and references.",
   },
   {
-    q: "Is manual review possible?",
-    a: "Absolutely. Review queues flag low-confidence fields, highlight discrepancies, and let senior staff accept, edit, or reject before anything becomes final in Tally.",
+    q: "Is posting fully automatic?",
+    a: "No — and that is intentional. Every voucher goes through a review workspace where you verify party, items, ledgers, and tax before posting. This matches how CAs already work — just much faster.",
   },
   {
-    q: "What kind of documents can be processed?",
-    a: "Sales and purchase invoices, expense bills, debit/credit notes, bank advice scans, petty cash slips, GST summaries, and consolidated statements commonly seen in SME finance inboxes.",
+    q: "How does bank statement processing work?",
+    a: "Upload a bank statement. AI extracts all transaction rows with opening and closing balances. Each line is classified as Payment, Receipt, or Contra with a suggested ledger. You review, edit, skip, or post lines — with progress tracked per statement.",
   },
   {
-    q: "Can reports be exported as PDFs?",
-    a: "Yes — once vouchers are validated you can export registers, party ledgers, and management packs to branded PDFs. For sales invoices specifically, we also support bulk PDF exports via our TDL add-on (Tally’s default export is typically one PDF at a time).",
+    q: "Can CA firms manage multiple clients and companies?",
+    a: "Yes. The app connects to all open Tally companies, auto-detects which company a document belongs to, and prevents cross-posting with company mismatch guards. The dashboard shows activity across all companies on your device.",
   },
   {
-    q: "Can I export multiple sales invoice PDFs in bulk?",
-    a: "Yes. We built a Tally add-on in TDL (Tally Definition Language) that enables bulk sales-invoice PDF exports — ideal for month-end packs, audit requests, and client sharing without exporting invoices one by one.",
+    q: "Where is my data stored?",
+    a: "On your local computer. Uploaded files, extracted review data, and post history stay on your machine. Vouchers are posted to TallyPrime, which remains your system of record.",
+  },
+  {
+    q: "What are MCP tools and why do they matter?",
+    a: "MCP tools are the automation layer that connects AI extraction to your live Tally data. They look up ledgers, stock items, company details, and voucher templates in real time — so entries are built from your actual Tally configuration, not a generic template.",
+  },
+  {
+    q: "Can clients send documents over WhatsApp?",
+    a: "Yes, with the optional Client Agent. Install the background service, link your WhatsApp, and configure an allowlist of approved client numbers. Documents appear in your review queue — they are not auto-posted.",
+  },
+  {
+    q: "How do firm teams work?",
+    a: "Create a firm workspace, invite members by email, and assign roles: owner, admin, or member. Owners and admins manage the team; all roles can process documents and post to Tally.",
+  },
+  {
+    q: "How is this different from cloud OCR tools?",
+    a: "Cloud OCR tools upload your client documents to their servers. Maxxit Tally processes documents on your premises and posts directly to your local TallyPrime. Your data stays under your control.",
   },
 ];
 
@@ -45,19 +61,19 @@ export function Faq() {
   const [open, setOpen] = React.useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-20 sm:py-24">
+    <section id="faq" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center">
-            <Badge tone="violet" className="mx-auto">
+            <Badge tone="brand" className="mx-auto">
               FAQ
             </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
               Answers accounting leaders ask early
             </h2>
-            <p className="mt-3 text-balance text-zinc-600">
-              Still curious? Bring your edge cases to a demo — we obsess over the
-              long tail of vouchers.
+            <p className="mt-3 text-balance text-ink-muted">
+              Still curious? Request a demo and bring your edge cases — we
+              obsess over the long tail of vouchers.
             </p>
           </div>
         </Reveal>
@@ -66,8 +82,8 @@ export function Faq() {
           {FAQS.map((item, i) => {
             const isOpen = open === i;
             return (
-              <Reveal key={item.q} delay={i * 0.04}>
-                <div className="overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-sm">
+              <Reveal key={item.q} delay={i * 0.03}>
+                <div className="overflow-hidden rounded-2xl border border-border-subtle bg-white shadow-sm">
                   <button
                     type="button"
                     aria-expanded={isOpen}
@@ -76,13 +92,13 @@ export function Faq() {
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-zinc-50/80"
                     onClick={() => setOpen(isOpen ? null : i)}
                   >
-                    <span className="text-base font-semibold text-zinc-900">
+                    <span className="text-base font-semibold text-ink-primary">
                       {item.q}
                     </span>
                     <ChevronDown
                       className={cn(
                         "h-5 w-5 shrink-0 text-zinc-400 transition-transform duration-200",
-                        isOpen ? "rotate-180" : "rotate-0",
+                        isOpen ? "rotate-180" : "rotate-0"
                       )}
                       aria-hidden
                     />
@@ -93,8 +109,8 @@ export function Faq() {
                     aria-labelledby={`faq-trigger-${i}`}
                     aria-hidden={!isOpen}
                     className={cn(
-                      "border-t border-zinc-100 px-5 text-sm leading-relaxed text-zinc-600 transition-[max-height,padding]",
-                      isOpen ? "max-h-112 py-4" : "max-h-0 overflow-hidden py-0",
+                      "border-t border-zinc-100 px-5 text-sm leading-relaxed text-ink-muted transition-[max-height,padding]",
+                      isOpen ? "max-h-112 py-4" : "max-h-0 overflow-hidden py-0"
                     )}
                   >
                     {item.a}

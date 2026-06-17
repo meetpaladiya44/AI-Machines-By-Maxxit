@@ -125,7 +125,7 @@ export function HeroMachineVisual() {
 
         {/* Orbiting chips */}
         <motion.div
-          className="absolute left-[8%] top-[18%] z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-zinc-200/90 bg-white/95 shadow-lg backdrop-blur"
+          className="absolute left-[8%] top-[11%] z-20 flex h-12 w-12 items-center justify-center rounded-2xl border border-zinc-200/90 bg-white/95 shadow-lg backdrop-blur"
           animate={reduce ? undefined : { y: [0, -5, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -151,21 +151,21 @@ export function HeroMachineVisual() {
           />
         </motion.div>
 
-        {/* CPU */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center pt-4">
+        {/* Desktop setup */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
           <div
-            className="relative h-[min(72vw,380px)] w-[min(58vw,300px)] sm:h-[420px] sm:w-[320px]"
+            className="relative h-[min(68vw,360px)] w-[min(70vw,400px)] -translate-y-1 sm:h-[400px] sm:w-[400px] sm:-translate-y-2"
             style={{
               filter:
                 "drop-shadow(0 0 28px rgba(52,211,153,0.35)) drop-shadow(0 24px 48px rgba(15,23,42,0.35))",
             }}
           >
             <Image
-              src="/images/cpu.png"
-              alt="On-premise AI machine"
+              src="/images/desktop-setup.png"
+              alt="On-premises Maxxit Tally desktop setup"
               fill
-              sizes="(max-width: 640px) 72vw, 420px"
-              className="object-contain object-bottom"
+              sizes="(max-width: 640px) 70vw, 400px"
+              className="object-contain object-center"
               priority
             />
           </div>
@@ -173,7 +173,7 @@ export function HeroMachineVisual() {
 
         {/* On-device AI agent chip */}
         <motion.div
-          className="absolute right-[4%] top-[12%] z-30 max-w-[200px] sm:right-[2%] sm:top-[8%]"
+          className="absolute right-[4%] top-[6%] z-30 max-w-[200px] sm:right-[2%] sm:top-[3%]"
           animate={reduce ? undefined : { y: [0, -6, 0] }}
           transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -196,9 +196,9 @@ export function HeroMachineVisual() {
         </motion.div>
       </div>
 
-      <div className="relative z-20 mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/90 px-3 py-1.5 text-xs font-medium text-emerald-900 shadow-sm backdrop-blur">
+      <div className="relative z-20 -mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/90 px-3 py-1.5 text-xs font-medium text-emerald-900 shadow-sm backdrop-blur">
         <Cpu className="h-3.5 w-3.5 text-emerald-600" aria-hidden />
-        <span>Runs on-prem · Your data stays on your CPU</span>
+        <span>Runs on-premises · Your data stays on your machine</span>
       </div>
     </div>
   );

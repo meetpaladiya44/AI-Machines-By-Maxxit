@@ -1,120 +1,105 @@
-import {
-  TrendingDown,
-  Users,
-  Gauge,
-  ShieldCheck,
-  Layers,
-  ClipboardList,
-} from "lucide-react";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { Card, CardIcon } from "@/components/ui/card";
-import { Reveal } from "@/components/ui/reveal";
+import { Check, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/ui/reveal";
+import { cn } from "@/lib/utils";
 
-const STATS = [
+const ROWS = [
   {
-    prefix: "",
-    value: 80,
-    suffix: "%",
-    label: "less time on repetitive data entry",
-    sub: "Give your seniors back billable hours every week.",
-    icon: Gauge,
-    tone: "emerald" as const,
+    dimension: "Document reading",
+    manual: "CA reads PDF, types fields",
+    maxxit: "AI extracts all fields automatically",
   },
   {
-    prefix: "",
-    value: 10,
-    suffix: "×",
-    label: "more documents cleared per teammate",
-    sub: "Same headcount — dramatically higher throughput.",
-    icon: Users,
-    tone: "violet" as const,
+    dimension: "Ledger lookup",
+    manual: "CA searches Tally manually",
+    maxxit: "MCP tools match against live masters",
   },
   {
-    prefix: "",
-    value: 99,
-    suffix: "%",
-    label: "extraction accuracy in pilot programmes",
-    sub: "Built-in checks catch anomalies before posting.",
-    icon: ShieldCheck,
-    tone: "sky" as const,
+    dimension: "Bank statements",
+    manual: "Line-by-line typing",
+    maxxit: "Bulk extraction with per-line review",
   },
   {
-    prefix: "",
-    value: 5,
-    suffix: "×",
-    label: "faster path to month-end close",
-    sub: "Backlogs shrink when intake is instantaneous.",
-    icon: TrendingDown,
-    tone: "rose" as const,
+    dimension: "Spreadsheets",
+    manual: "Copy-paste row by row",
+    maxxit: "AI column mapping, row-wise processing",
   },
   {
-    prefix: "",
-    value: 24,
-    suffix: "/7",
-    label: "always-on intake over WhatsApp",
-    sub: "Clients send when convenient; you batch review when ready.",
-    icon: Layers,
-    tone: "amber" as const,
+    dimension: "Company routing",
+    manual: "CA must notice wrong company",
+    maxxit: "Auto-detection with mismatch guards",
   },
   {
-    prefix: "",
-    value: 100,
-    suffix: "%",
-    label: "traceable audit trail",
-    sub: "Every document ties back to vouchers and exports.",
-    icon: ClipboardList,
-    tone: "zinc" as const,
+    dimension: "GSTIN checks",
+    manual: "CA compares manually",
+    maxxit: "System flags mismatches before post",
+  },
+  {
+    dimension: "Client document intake",
+    manual: "Email and WhatsApp chaos",
+    maxxit: "Structured queue with optional Agent",
+  },
+  {
+    dimension: "Posting",
+    manual: "Create voucher in Tally GUI",
+    maxxit: "One-click post after review",
+  },
+  {
+    dimension: "Data location",
+    manual: "Cloud OCR uploads client files",
+    maxxit: "On-premises — documents stay local",
   },
 ];
 
 export function Benefits() {
   return (
-    <section id="benefits" className="relative py-20 sm:py-24">
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-gradient-to-t from-emerald-50/50 via-transparent to-transparent" />
-
+    <section id="differentiators" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="emerald" className="mx-auto">
-              Outcomes finance teams feel
+            <Badge tone="brand" className="mx-auto">
+              Why Maxxit Tally
             </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              Operational metrics that compound month after month
+            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
+              Minutes per document — not hours of manual entry
             </h2>
-            <p className="mt-3 text-balance text-zinc-600">
-              Automation is not about replacing accountants — it is about
-              removing the parts of the job that machines already do better.
+            <p className="mt-3 text-balance text-ink-muted">
+              The on-premises alternative to cloud OCR and unattended automation.
+              Faster than typing. More controlled than auto-posting.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {STATS.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <Reveal key={s.label} delay={i * 0.05}>
-                <Card className="flex h-full flex-col">
-                  <CardIcon tone={s.tone}>
-                    <Icon className="h-5 w-5" />
-                  </CardIcon>
-                  <div className="mt-4 text-4xl font-semibold tabular-nums tracking-tight text-zinc-900 sm:text-[2.65rem]">
-                    <AnimatedCounter
-                      to={s.value}
-                      prefix={s.prefix}
-                      suffix={s.suffix}
-                    />
-                  </div>
-                  <p className="mt-3 text-base font-semibold text-zinc-900">
-                    {s.label}
-                  </p>
-                  <p className="mt-1.5 text-sm text-zinc-600">{s.sub}</p>
-                  <div className="mt-auto" />
-                </Card>
-              </Reveal>
-            );
-          })}
-        </div>
+        <Reveal delay={0.06}>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-border-subtle bg-white shadow-sm">
+            <div className="grid grid-cols-[1.1fr_1fr_1fr] border-b border-border-subtle bg-surface-page/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-ink-muted sm:px-6 sm:text-sm">
+              <span>Dimension</span>
+              <span className="flex items-center gap-1.5">
+                <X className="h-3.5 w-3.5 text-rose-500" />
+                Manual entry
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-brand-green" />
+                Maxxit Tally
+              </span>
+            </div>
+            {ROWS.map((row, i) => (
+              <div
+                key={row.dimension}
+                className={cn(
+                  "grid grid-cols-[1.1fr_1fr_1fr] gap-2 px-4 py-4 text-sm sm:px-6",
+                  i < ROWS.length - 1 && "border-b border-border-subtle/80"
+                )}
+              >
+                <span className="font-medium text-ink-primary">
+                  {row.dimension}
+                </span>
+                <span className="text-ink-muted">{row.manual}</span>
+                <span className="text-ink-primary">{row.maxxit}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -17,9 +17,9 @@ export function GradientBlur({
           className
         )}
       >
-        <div className="absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-emerald-300/30 blur-[110px]" />
-        <div className="absolute -top-24 right-[-10%] h-[460px] w-[460px] rounded-full bg-violet-300/30 blur-[120px]" />
-        <div className="absolute top-1/3 left-1/3 h-[360px] w-[360px] rounded-full bg-rose-200/40 blur-[120px]" />
+        <div className="absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-brand-green/15 blur-[110px]" />
+        <div className="absolute -top-24 right-[-10%] h-[460px] w-[460px] rounded-full bg-surface-wash blur-[120px]" />
+        <div className="absolute top-1/3 left-1/3 h-[360px] w-[360px] rounded-full bg-brand-green/8 blur-[120px]" />
       </div>
     );
   }
@@ -32,8 +32,7 @@ export function GradientBlur({
           className
         )}
       >
-        <div className="absolute -top-20 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-emerald-400/25 blur-[120px]" />
-        <div className="absolute bottom-[-20%] left-[10%] h-[360px] w-[360px] rounded-full bg-violet-400/25 blur-[120px]" />
+        <div className="absolute -top-20 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-brand-green/20 blur-[120px]" />
       </div>
     );
   }
@@ -45,8 +44,8 @@ export function GradientBlur({
         className
       )}
     >
-      <div className="absolute top-0 left-0 h-[300px] w-[300px] rounded-full bg-sky-200/40 blur-[100px]" />
-      <div className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-emerald-200/40 blur-[110px]" />
+      <div className="absolute top-0 left-0 h-[300px] w-[300px] rounded-full bg-brand-green/10 blur-[100px]" />
+      <div className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-surface-wash blur-[110px]" />
     </div>
   );
 }

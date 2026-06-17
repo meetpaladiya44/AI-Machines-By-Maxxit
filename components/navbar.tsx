@@ -6,12 +6,13 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "@/components/brand-logo";
 import { BookDemoButton } from "@/components/ui/book-demo-button";
+import { GET_STARTED_HREF, SIGN_IN_HREF } from "@/lib/site-links";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { label: "How it works", href: "#how-it-works" },
   { label: "Features", href: "#features" },
-  { label: "Demo", href: "#demo" },
+  { label: "Security", href: "#security" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -29,30 +30,27 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-100 isolate w-full border-b border-zinc-900 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-100 isolate w-full border-b transition-all duration-300",
         scrolled
-          ? "border-zinc-600 bg-white/80 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "border-border-subtle bg-white/90 backdrop-blur-xl shadow-sm"
+          : "border-transparent bg-surface-page/80 backdrop-blur-sm"
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="flex items-center isolate"
-            aria-label="AI Machines by Maxxit home"
-            style={{ WebkitTransform: "translateZ(0)", transform: "translateZ(0)" }}
-          >
-            <BrandLogo />
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className="flex items-center"
+          aria-label="Maxxit Tally System home"
+        >
+          <BrandLogo />
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
+              className="text-sm text-ink-muted transition-colors hover:text-ink-primary"
             >
               {link.label}
             </Link>
@@ -60,15 +58,20 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Button href="#demo" variant="ghost" size="sm" className="hover:cursor-pointer">
-            See How It Works
+          <Button href={SIGN_IN_HREF} variant="ghost" size="sm">
+            Sign In
           </Button>
-          <BookDemoButton size="sm" className="hover:cursor-pointer">Book a Demo</BookDemoButton>
+          <Button href={GET_STARTED_HREF} size="sm">
+            Get Started
+          </Button>
+          <BookDemoButton size="sm" variant="secondary">
+            Request a Demo
+          </BookDemoButton>
         </div>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-zinc-200 bg-white text-zinc-700 md:hidden"
+          className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-border-subtle bg-white text-zinc-700 md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
@@ -76,8 +79,8 @@ export function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-zinc-200/70 bg-white/95 backdrop-blur-xl md:hidden">
+      {open ? (
+        <div className="border-t border-border-subtle bg-white/95 backdrop-blur-xl md:hidden">
           <div className="space-y-1 px-4 py-4">
             {NAV_LINKS.map((link) => (
               <Link
@@ -90,14 +93,19 @@ export function Navbar() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-3">
-              <Button href="#demo" variant="secondary" size="md">
-                See How It Works
+              <Button href={SIGN_IN_HREF} variant="ghost" size="md">
+                Sign In
               </Button>
-              <BookDemoButton size="md">Book a Demo</BookDemoButton>
+              <Button href={GET_STARTED_HREF} size="md">
+                Get Started
+              </Button>
+              <BookDemoButton size="md" variant="secondary">
+                Request a Demo
+              </BookDemoButton>
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

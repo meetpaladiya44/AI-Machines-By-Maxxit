@@ -14,54 +14,44 @@ const CHAT: { role: "client" | "ai"; id: string; content: React.ReactNode }[] =
     {
       role: "client",
       id: "msg-1",
-      content: "Hi",
+      content: "[PDF attachment: 039_2026-27.pdf]",
     },
     {
       role: "ai",
       id: "msg-2",
-      content: "Hello, how can I help you today?",
+      content: (
+        <>
+          <p>Invoice received ✓ — your CA will process it shortly.</p>
+          <p className="mt-1 text-xs text-zinc-500">Powered by Maxxit</p>
+        </>
+      ),
     },
     {
       role: "client",
       id: "msg-3",
-      content:
-        "I have created one folder of Maxxit-Traders-Purchases in this workspace so can you please post all the purchase voucher in tally ? I want them to be posted for the date of 1st Feb 2026 as Accounting Invoice. You can check the company details from tally.",
+      content: "[PDF attachment: Invoice No.8933178977.PDF]",
+    },
+    {
+      role: "client",
+      id: "msg-4",
+      content: "/invoice",
     },
     {
       role: "ai",
       id: "msg-5",
-      content: (
-        <div className="space-y-2">
-          <p>
-            I’ll post these in{" "}
-            <span className="font-semibold text-emerald-700">
-              Accounting Invoice
-            </span>{" "}
-            mode for{" "}
-            <span className="font-semibold text-emerald-700">
-              Maxxit Traders
-            </span>{" "}
-            with voucher date{" "}
-            <span className="font-mono text-xs font-semibold text-emerald-700">
-              2026/02/01
-            </span>
-            .
-          </p>
-          <p className="text-xs text-zinc-600">
-            Using the extracted invoice numbers and totals from your PDFs. I’m
-            using the existing ledgers in your company:
-          </p>
-          <ul className="list-disc pl-4 space-y-1 text-xs text-zinc-600">
-            <li>Ultratech Cement Limited</li>
-            <li>Purchase @ 18%</li>
-            <li>Input CGST @ 9%</li>
-            <li>Input SGST @ 9%</li>
-          </ul>
-          <p className="text-xs text-zinc-600">
-            With bill-wise references per invoice number.
-          </p>
-        </div>
-      ),
+      content:
+        "Ready! Send me the invoice details (party name, items, quantities and rates) and I'll generate it for you.",
+    },
+    {
+      role: "client",
+      id: "msg-6",
+      content: "Rajat Builders PPC Cement 40 bags 240 per bag",
+    },
+    {
+      role: "ai",
+      id: "msg-7",
+      content:
+        "[PDF: invoice_G-207.pdf — GST invoice generated from Tally data]",
     },
   ];
 
@@ -72,12 +62,14 @@ const AI_PHASES = [
   "Voucher draft",
 ];
 
+const LOOP_TICKS = CHAT.length + AI_PHASES.length + 2;
+
 export function InteractiveDemo() {
   const reduce = useReducedMotion();
   const rootRef = React.useRef<HTMLDivElement | null>(null);
   const inView = useInView(rootRef, { amount: 0.2, once: false });
 
-  /** 10-step loop: chat fills in, AI progresses, voucher appears, PDF pulse */
+  /** Chat fills in, AI progresses, voucher appears, PDF pulse */
   const [tick, setTick] = React.useState(0);
 
   React.useEffect(() => {
@@ -86,19 +78,19 @@ export function InteractiveDemo() {
       return;
     }
     const id = window.setInterval(() => {
-      setTick((t) => (t + 1) % 10);
+      setTick((t) => (t + 1) % LOOP_TICKS);
     }, 2000);
     return () => window.clearInterval(id);
   }, [inView, reduce]);
 
   const messagesVisible = Math.min(CHAT.length, 1 + tick);
-  const afterChat = tick >= 4;
+  const afterChat = tick >= CHAT.length;
   const activePhaseIdx = afterChat
-    ? Math.min(tick - 4, AI_PHASES.length - 1)
+    ? Math.min(tick - CHAT.length, AI_PHASES.length - 1)
     : -1;
-  const allAiDone = tick >= 8;
-  const showVoucher = tick >= 7;
-  const exportFlash = tick === 9;
+  const allAiDone = tick >= CHAT.length + AI_PHASES.length - 1;
+  const showVoucher = tick >= CHAT.length + 2;
+  const exportFlash = tick === CHAT.length + AI_PHASES.length;
 
   return (
     <section
@@ -229,7 +221,7 @@ export function InteractiveDemo() {
                 <div className="mb-2 flex justify-between text-xs font-medium text-zinc-600">
                   <span>Pipeline progress</span>
                   <span>
-                    {Math.min(100, Math.round(((tick + 1) / 10) * 100))}%
+                    {Math.min(100, Math.round(((tick + 1) / LOOP_TICKS) * 100))}%
                   </span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-zinc-100">
@@ -237,7 +229,7 @@ export function InteractiveDemo() {
                     className="h-full rounded-full bg-linear-to-r from-emerald-500 to-violet-500"
                     initial={false}
                     animate={{
-                      width: `${Math.min(100, ((tick + 1) / 10) * 100)}%`,
+                      width: `${Math.min(100, ((tick + 1) / LOOP_TICKS) * 100)}%`,
                     }}
                     transition={{
                       type: "spring",

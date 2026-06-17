@@ -5,8 +5,18 @@
     var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Arial, "Apple Color Emoji", "Segoe UI Emoji";
 
-  --color-bg: #fafaf9;
-  --color-fg: #0a0a0a;
+  --color-brand-green: #00cc6a;
+  --color-brand-green-hover: #00ff88;
+  --color-brand-green-muted: #e8f5ee;
+  --color-surface-page: #f4f7fb;
+  --color-surface-wash: #e8f5ee;
+  --color-ink-primary: #0f172a;
+  --color-ink-muted: #64748b;
+  --color-ink-dark: #171927;
+  --color-border-subtle: #e2e8f0;
+
+  --color-bg: var(--color-surface-page);
+  --color-fg: var(--color-ink-primary);
 }
 
 html,
@@ -21,7 +31,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, #10b981 28%, transparent);
+  background: color-mix(in oklab, var(--color-brand-green) 28%, transparent);
 }
 
 @keyframes maxxitShimmer {
@@ -33,8 +43,13 @@ body {
   }
 }
 
-.maxxit-animated-byline {
-  background: linear-gradient(90deg, #10b981 0%, #34d399 35%, #60a5fa 70%, #10b981 100%);
+.maxxit-brand-byline {
+  background: linear-gradient(
+    90deg,
+    var(--color-brand-green) 0%,
+    #34d399 50%,
+    var(--color-brand-green) 100%
+  );
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -42,55 +57,43 @@ body {
   animation: maxxitShimmer 2.2s linear infinite;
 }
 
-@keyframes aiGlowShift {
-  0% {
-    background-position: 0% 50%;
-    filter: drop-shadow(0 0 10px color-mix(in oklab, #34d399 50%, transparent));
-  }
-  100% {
-    background-position: 100% 50%;
-    filter: drop-shadow(0 0 16px color-mix(in oklab, #60a5fa 55%, transparent));
-  }
-}
-
-.ai-machines-wordmark {
-  background: linear-gradient(
-    90deg,
-    #0f172a 0%,
-    #0f172a 30%,
-    #34d399 48%,
-    #60a5fa 62%,
-    #0f172a 82%,
-    #0f172a 100%
-  );
-  background-size: 260% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: aiGlowShift 2.6s ease-in-out infinite alternate;
-}
-
 /* ---- Invoice generation section: lightweight CSS animations ---- */
 
 @keyframes float {
-  0%, 100% { transform: translateY(-8px); opacity: 0.18; }
-  50%      { transform: translateY(8px);  opacity: 0.5;  }
+  0%,
+  100% {
+    transform: translateY(-8px);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
 }
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 @keyframes beamShimmer {
-  0%   { top: -32px; }
-  100% { top: 80px;  }
+  0% {
+    top: -32px;
+  }
+  100% {
+    top: 80px;
+  }
 }
 .animate-beam-shimmer {
   animation: beamShimmer 1.5s ease-in-out infinite;
 }
 
 @keyframes gentlePulse {
-  0%, 100% { transform: scale(1);    }
-  50%      { transform: scale(1.06); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
 }
 .animate-gentle-pulse {
   animation: gentlePulse 3s ease-in-out infinite;

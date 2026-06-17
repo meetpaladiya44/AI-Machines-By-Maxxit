@@ -12,9 +12,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Machines by Maxxit — WhatsApp to Tally accounting automation",
+  title: "Maxxit Tally System — AI-powered entries for TallyPrime, on your premises",
   description:
-    "Send invoices, PDFs, or images on WhatsApp. AI Machines by Maxxit reads them on your hardware and creates accurate accounting entries directly in Tally—then generates exportable PDFs and reports.",
+    "Automate purchase, sales, and bank statement entries into TallyPrime. AI extracts documents locally, MCP tools match your ledgers, and you review every voucher before posting.",
+  openGraph: {
+    title: "Maxxit Tally System — Document to Tally in minutes",
+    description:
+      "On-premises accounting automation for CA firms. PDF, photos, Excel, and CSV — reviewed on your machine, posted to TallyPrime.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-dvh font-sans antialiased">
+      <body className="min-h-dvh bg-surface-page font-sans text-ink-primary antialiased">
         <DemoModalProvider>
           <Navbar />
           <div className="pt-16">{children}</div>
@@ -34,4 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -9,10 +9,10 @@ import { Reveal } from "@/components/ui/reveal";
 import { HeroMachineVisual } from "./hero-machine-visual";
 
 const HIGHLIGHTS = [
-  "WhatsApp-first workflow",
-  "Direct Tally integration",
-  "AI invoice & PDF reading",
-  "Bulk sales-invoice PDF export (TDL add-on)",
+  "Purchase, sales & bank statements",
+  "PDF, photos, Excel & CSV",
+  "Review every voucher before posting",
+  "Direct TallyPrime integration",
   "Runs on your machine — not the cloud",
 ];
 
@@ -68,11 +68,10 @@ export function Hero() {
 
           <Reveal direction="up" delay={0.1}>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Send invoices, bills, receipts, PDFs, or images on WhatsApp. Our
-              on-device AI agent reads, understands, and creates accurate
-              accounting entries directly in Tally — data stays on your firm&apos;s
-              hardware — and gives you exportable reports instantly (including
-              bulk sales-invoice PDF exports via our TDL add-on).
+              From invoices and bank statements to Tally vouchers in minutes, not
+              hours. AI-powered accounting entries — on your premises, straight
+              into Tally. Import PDFs, photos, or Excel; review every voucher
+              before posting.
             </p>
           </Reveal>
 

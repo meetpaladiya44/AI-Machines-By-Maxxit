@@ -1,11 +1,11 @@
 import Image from "next/image";
 import {
-  MessageSquare,
+  Upload,
   ScanLine,
-  Brain,
-  Database,
-  FileOutput,
-  ShieldCheck,
+  Link2,
+  ClipboardCheck,
+  Send,
+  BarChart3,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -13,34 +13,34 @@ import { GradientBlur } from "@/components/ui/gradient-blur";
 
 const STEPS = [
   {
-    icon: MessageSquare,
-    title: "Client sends files on WhatsApp",
-    desc: "Invoices, bills, receipts, statements — PDFs or photos. No portal, no upload form.",
+    icon: Upload,
+    title: "Import documents",
+    desc: "Bulk Upload PDFs, photos, Excel, CSV — or optional Client Agent intake.",
   },
   {
     icon: ScanLine,
-    title: "AI reads the document",
-    desc: "LLM-based document understanding extracts every line: vendor, GSTIN, date, amounts, taxes, and voucher type.",
+    title: "AI reads & classifies",
+    desc: "Purchase, sales, or bank statement — including scanned PDFs and phone photos.",
   },
   {
-    icon: Brain,
-    title: "Smart ledger detection",
-    desc: "Picks the correct ledger, party, GST split, and voucher format for that company.",
+    icon: Link2,
+    title: "MCP tools match Tally",
+    desc: "Party, ledger, stock item, and company routing against live masters.",
   },
   {
-    icon: Database,
-    title: "Posts directly into Tally",
-    desc: "Vouchers are written into the right company in your locally running TallyPrime.",
+    icon: ClipboardCheck,
+    title: "CA reviews side by side",
+    desc: "Edit party, items, ledgers, tax — nothing auto-posted.",
   },
   {
-    icon: FileOutput,
-    title: "Reports & PDFs generated",
-    desc: "Day book, ledger statements, GST summaries — exportable in one click.",
+    icon: Send,
+    title: "One-click post to TallyPrime",
+    desc: "Voucher written to the correct company with traceable narration.",
   },
   {
-    icon: ShieldCheck,
-    title: "CA team reviews & approves",
-    desc: "Optional human review keeps you in control before anything is finalised.",
+    icon: BarChart3,
+    title: "Track on your machine",
+    desc: "Local post history and dashboard across companies.",
   },
 ];
 
@@ -53,14 +53,16 @@ export function Solution() {
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <Badge tone="emerald" className="mx-auto">
-              The AI Machines by Maxxit workflow
+              The Maxxit Tally workflow
             </Badge>
             <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              An AI agent that does the boring 80% — automatically
+              An AI companion that does the repetitive extraction — you approve
+              every post
             </h2>
             <p className="mt-3 text-pretty text-zinc-600">
-              From a WhatsApp message to a posted Tally voucher in seconds. Your
-              team only steps in for the final review.
+              Runs on the CA&apos;s own computer. AI extracts voucher-ready data,
+              MCP tools match live Tally masters, and you review everything
+              before posting — financial documents stay on the local machine.
             </p>
           </div>
         </Reveal>
@@ -86,12 +88,12 @@ export function Solution() {
                         "drop-shadow(0 0 20px rgba(52,211,153,0.25)) drop-shadow(0 16px 32px rgba(0,0,0,0.4))",
                     }}
                   >
-                    <div className="relative h-[78%] w-[55%] max-w-[280px]">
+                    <div className="relative h-[78%] w-[70%] max-w-[360px]">
                       <Image
-                        src="/images/cpu.png"
-                        alt="On-premise AI machine with AI Machines by Maxxit"
+                        src="/images/desktop-setup.png"
+                        alt="On-premises Maxxit Tally desktop setup"
                         fill
-                        sizes="280px"
+                        sizes="360px"
                         className="object-contain"
                       />
                     </div>
@@ -101,11 +103,11 @@ export function Solution() {
                   <div className="flex items-center gap-2">
                     <span className="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
                     <span className="text-xs font-medium text-zinc-200">
-                      Agent on your CPU
+                      Runs on your local system
                     </span>
                   </div>
                   <span className="text-[11px] uppercase tracking-wider text-emerald-300/90">
-                    AI Machines by Maxxit · Tally connector
+                    Maxxit Tally · TallyPrime companion
                   </span>
                 </div>
               </div>
@@ -145,4 +147,3 @@ export function Solution() {
     </section>
   );
 }
-

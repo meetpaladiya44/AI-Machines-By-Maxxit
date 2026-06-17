@@ -2,6 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 type Tone =
+  | "brand"
   | "emerald"
   | "violet"
   | "rose"
@@ -11,6 +12,8 @@ type Tone =
   | "white";
 
 const toneStyles: Record<Tone, string> = {
+  brand:
+    "bg-brand-green/10 text-brand-green ring-1 ring-inset ring-brand-green/20",
   emerald:
     "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/15",
   violet: "bg-violet-50 text-violet-700 ring-1 ring-inset ring-violet-600/15",
@@ -23,7 +26,7 @@ const toneStyles: Record<Tone, string> = {
 };
 
 export function Badge({
-  tone = "emerald",
+  tone = "brand",
   className,
   children,
 }: {
