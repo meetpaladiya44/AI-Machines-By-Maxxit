@@ -2,15 +2,14 @@ import Image from "next/image";
 import {
   Upload,
   ScanLine,
-  Link2,
   ClipboardCheck,
   Send,
-  BarChart3,
 } from "lucide-react";
+import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
 import { GradientBlur } from "@/components/ui/gradient-blur";
 import { BrandHighlight } from "@/components/ui/section-heading";
+import { cn } from "@/lib/utils";
 
 const STEPS = [
   {
@@ -34,6 +33,8 @@ const STEPS = [
     desc: "Voucher written to the correct company with traceable narration.",
   }
 ];
+
+const GLOW_ORB = "bg-emerald-500/15";
 
 export function Solution() {
   return (
@@ -106,24 +107,43 @@ export function Solution() {
               {STEPS.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <li
-                    key={s.title}
-                    className="group flex items-start gap-4 rounded-2xl border border-transparent p-3 transition-colors hover:border-zinc-200 hover:bg-white/70"
-                  >
-                    <div className="relative">
-                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 text-emerald-600 ring-1 ring-inset ring-emerald-500/20">
-                        <Icon className="h-5 w-5" />
+                  <li key={s.title} className="list-none">
+                    <Card
+                      hover={false}
+                      className="card-shine group relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-[0_22px_40px_-18px_rgba(0,204,106,0.12)]"
+                    >
+                      <div
+                        aria-hidden
+                        className={cn(
+                          "pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100",
+                          GLOW_ORB
+                        )}
+                      />
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-emerald-500/8 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      />
+
+                      <div className="relative flex items-start gap-4">
+                        <div className="relative shrink-0">
+                          <CardIcon
+                            tone="emerald"
+                            className="h-10 w-10 transition-transform duration-300 group-hover:scale-105"
+                          >
+                            <Icon className="h-5 w-5" />
+                          </CardIcon>
+                          <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-[10px] font-semibold text-white">
+                            {i + 1}
+                          </span>
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-base font-semibold text-zinc-900">
+                            {s.title}
+                          </h3>
+                          <p className="mt-1 text-sm text-zinc-600">{s.desc}</p>
+                        </div>
                       </div>
-                      <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-[10px] font-semibold text-white">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="text-base font-semibold text-zinc-900">
-                        {s.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-zinc-600">{s.desc}</p>
-                    </div>
+                    </Card>
                   </li>
                 );
               })}

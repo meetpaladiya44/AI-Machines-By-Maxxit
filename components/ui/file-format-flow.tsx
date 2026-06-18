@@ -36,7 +36,7 @@ function FormatIcon({
 
   return (
     <div className="flex flex-col items-center gap-1.5">
-      <div className="rounded-xl bg-white p-1.5 shadow-sm ring-1 ring-zinc-200/80 transition-transform duration-200 hover:-translate-y-0.5">
+      <div className="rounded-xl bg-white p-1.5 shadow-sm ring-1 ring-zinc-200/80 transition-transform duration-300 hover:-translate-y-0.5 hover:scale-105">
         <Image
           src={icon.src}
           alt={icon.alt}
@@ -94,15 +94,21 @@ export function FileFormatFlow({
         ))}
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <ArrowRight
-            className={cn(
-              "shrink-0 text-brand-green",
-              size === "sm" ? "h-4 w-4" : size === "lg" ? "h-6 w-6" : "h-5 w-5"
-            )}
-            aria-hidden
-          />
+          <div className="relative flex shrink-0 items-center justify-center">
+            <span
+              aria-hidden
+              className="absolute h-8 w-8 animate-pulse rounded-full ring-2 ring-brand-green/25 sm:h-10 sm:w-10"
+            />
+            <ArrowRight
+              className={cn(
+                "relative z-10 text-brand-green",
+                size === "sm" ? "h-4 w-4" : size === "lg" ? "h-6 w-6" : "h-5 w-5"
+              )}
+              aria-hidden
+            />
+          </div>
           <div className="flex flex-col items-center gap-1.5">
-            <div className="rounded-xl bg-brand-green/10 p-1.5 shadow-sm ring-1 ring-brand-green/25 transition-transform duration-200 hover:-translate-y-0.5">
+            <div className="rounded-xl bg-brand-green/10 p-1.5 shadow-sm ring-1 ring-brand-green/25 transition-transform duration-300 hover:-translate-y-0.5 hover:scale-105">
               <Image
                 src={json.src}
                 alt={json.alt}

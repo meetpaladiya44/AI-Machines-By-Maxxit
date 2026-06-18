@@ -127,3 +127,99 @@ body {
 .flow-line.is-animating {
   animation: flowLineDraw 1.4s ease-in-out forwards;
 }
+
+.flow-line-security {
+  stroke: rgba(0, 204, 106, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+}
+
+/* ---- Section polish: pipeline border + card shine ---- */
+
+@keyframes borderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pipeline-glow-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 204, 106, 0.35),
+    rgba(0, 204, 106, 0.08) 50%,
+    rgba(0, 204, 106, 0.25)
+  );
+  box-shadow: 0 0 40px -12px rgba(0, 204, 106, 0.25);
+}
+
+.pipeline-glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 204, 106, 0.45) 25%,
+    transparent 50%,
+    rgba(0, 204, 106, 0.2) 75%,
+    transparent 100%
+  );
+  animation: borderSpin 6s linear infinite;
+  opacity: 0.6;
+}
+
+.pipeline-glow-border > .pipeline-glow-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: calc(1rem - 2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-glow-border::before {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+@keyframes cardShine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 62%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.card-shine:hover::after {
+  animation: cardShine 0.65s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-shine::after {
+    display: none;
+  }
+}

@@ -15,6 +15,7 @@ import {
 import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
 import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
+import { cn } from "@/lib/utils";
 
 const AUDIENCES = [
   {
@@ -54,6 +55,13 @@ const AUDIENCES = [
     tone: "sky" as const,
   },
 ];
+
+const GLOW_ORB: Record<(typeof AUDIENCES)[number]["tone"], string> = {
+  emerald: "bg-emerald-500/15",
+  sky: "bg-sky-500/15",
+  amber: "bg-amber-500/15",
+  zinc: "bg-zinc-500/15",
+};
 
 export function IdealFor() {
   const reduceMotion = useReducedMotion();
@@ -118,14 +126,34 @@ export function IdealFor() {
                     key={a.title}
                     className="min-w-0 shrink-0 grow-0 basis-[280px] pl-5 sm:basis-[300px]"
                   >
-                    <Card className="h-full">
-                      <CardIcon tone={a.tone}>
+                    <Card
+                      hover={false}
+                      className="card-shine group relative h-full overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-[0_22px_40px_-18px_rgba(0,204,106,0.12)]"
+                    >
+                      <div
+                        aria-hidden
+                        className={cn(
+                          "pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100",
+                          GLOW_ORB[a.tone]
+                        )}
+                      />
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-emerald-500/8 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      />
+
+                      <CardIcon
+                        tone={a.tone}
+                        className="relative transition-transform duration-300 group-hover:scale-105"
+                      >
                         <Icon className="h-5 w-5" />
                       </CardIcon>
-                      <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink-primary">
+                      <h3 className="relative mt-4 text-lg font-semibold tracking-tight text-ink-primary">
                         {a.title}
                       </h3>
-                      <p className="mt-1.5 text-sm text-ink-muted">{a.desc}</p>
+                      <p className="relative mt-1.5 text-sm text-ink-muted">
+                        {a.desc}
+                      </p>
                     </Card>
                   </div>
                 );
