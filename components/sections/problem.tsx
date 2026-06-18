@@ -7,6 +7,7 @@ import {
   CloudOff,
 } from "lucide-react";
 import { Card, CardIcon } from "@/components/ui/card";
+import { FallingStagger, FallingStaggerItem } from "@/components/ui/falling-stagger";
 import { Reveal } from "@/components/ui/reveal";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
@@ -116,15 +117,14 @@ export function Problem() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3">
-          {PROBLEMS.map((p, i) => {
+        <FallingStagger once={false} className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3">
+          {PROBLEMS.map((p) => {
             const Icon = p.icon;
             const isHero = p.span === "hero";
 
             return (
-              <Reveal
+              <FallingStaggerItem
                 key={p.title}
-                delay={i * 0.04}
                 className={cn(SPAN_CLASS[p.span])}
               >
                 <Card
@@ -185,10 +185,10 @@ export function Problem() {
                     </div>
                   </div>
                 </Card>
-              </Reveal>
+              </FallingStaggerItem>
             );
           })}
-        </div>
+        </FallingStagger>
       </div>
     </section>
   );

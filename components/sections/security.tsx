@@ -58,12 +58,11 @@ const GLOW_ORB: Record<(typeof ITEMS)[number]["tone"], string> = {
 export function Security() {
   const sectionRef = React.useRef<HTMLElement>(null);
   const svgRef = React.useRef<SVGSVGElement>(null);
-  const inView = useInView(sectionRef, { amount: 0.3, once: true });
+  const inView = useInView(sectionRef, { amount: 0.3, once: false });
   const reduce = useReducedMotion();
   const [pathLengths, setPathLengths] = React.useState<Record<string, number>>(
     {}
   );
-  const [linesActive, setLinesActive] = React.useState(false);
 
   const measurePaths = React.useCallback(() => {
     const svg = svgRef.current;
@@ -81,12 +80,6 @@ export function Security() {
     measurePaths();
   }, [measurePaths]);
 
-  React.useEffect(() => {
-    if (inView && !reduce) setLinesActive(true);
-  }, [inView, reduce]);
-
-  const showLines = reduce || linesActive;
-
   return (
     <section
       id="security"
@@ -100,7 +93,7 @@ export function Security() {
       <GradientBlur variant="cta" className="opacity-60" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
+        <Reveal once={false}>
           <div className="mx-auto max-w-2xl text-center">
             <SectionHeading className="text-balance text-white">
               On-premises & safe -{" "}
@@ -130,11 +123,11 @@ export function Security() {
                   d={d}
                   className={cn(
                     "flow-line flow-line-security",
-                    showLines
-                      ? reduce
+                    !inView
+                      ? "opacity-0"
+                      : reduce
                         ? "is-drawn"
                         : "is-animating"
-                      : "opacity-0"
                   )}
                   style={{ "--path-len": len } as React.CSSProperties}
                 />
@@ -160,7 +153,7 @@ export function Security() {
             {ITEMS.map((item, i) => {
               const Icon = item.icon;
               return (
-                <Reveal key={item.title} delay={i * 0.05}>
+                <Reveal key={item.title} once={false} delay={i * 0.05}>
                   <Card
                     hover={false}
                     className="card-shine group relative flex h-full flex-col overflow-hidden border-white/10 bg-white/5 text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/8 hover:shadow-[0_22px_40px_-18px_rgba(0,204,106,0.15)]"
