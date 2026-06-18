@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 
 const AUDIENCES = [
   {
@@ -84,15 +84,13 @@ export function IdealFor() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="brand" className="mx-auto">
-              Trusted by accounting professionals
-            </Badge>
-            <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Built for every team that touches the books
-            </h2>
+            <SectionHeading className="text-ink-primary">
+              For accounting pros -{" "}
+              <BrandHighlight>every team on the books</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-pretty text-ink-muted">
               Whether you handle one Tally company or dozens, Maxxit Tally keeps
-              document intake, review, and posting moving — on your premises, on
+              document intake, review, and posting moving - on your premises, on
               your terms.
             </p>
           </div>

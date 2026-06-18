@@ -12,13 +12,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Maxxit Tally System — AI-powered entries for TallyPrime, on your premises",
+  title: "Maxxit Tally System - AI-powered entries for TallyPrime, on your premises",
   description:
     "Automate purchase, sales, and bank statement entries into TallyPrime. AI extracts documents locally, MCP tools match your ledgers, and you review every voucher before posting.",
   openGraph: {
-    title: "Maxxit Tally System — Document to Tally in minutes",
+    title: "Maxxit Tally System - Document to Tally in minutes",
     description:
-      "On-premises accounting automation for CA firms. PDF, photos, Excel, and CSV — reviewed on your machine, posted to TallyPrime.",
+      "On-premises accounting automation for CA firms. PDF, photos, Excel, and CSV - reviewed on your machine, posted to TallyPrime.",
     type: "website",
   },
 };

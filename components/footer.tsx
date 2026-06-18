@@ -10,10 +10,10 @@ const COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Features", href: "#features" },
+      { label: "How it works", href: "#data-flow" },
+      { label: "Features", href: "#document-types" },
       { label: "Bank statements", href: "#bank-statements" },
-      { label: "Differentiators", href: "#differentiators" },
+      { label: "Agentic flow", href: "#demo" },
     ],
   },
   {

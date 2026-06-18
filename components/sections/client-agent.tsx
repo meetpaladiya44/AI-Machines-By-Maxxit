@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MessageSquare, Shield, Reply, ArrowRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { CLIENT_AGENT_VISUALS } from "@/lib/landing-images";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ const POINTS = [
   {
     icon: Reply,
     title: "Auto-acknowledgement",
-    desc: "Clients receive a default reply: invoice received — your CA will process it shortly.",
+    desc: "Clients receive a default reply: invoice received - your CA will process it shortly.",
   },
   {
     icon: MessageSquare,
@@ -174,12 +174,10 @@ export function ClientAgent() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <Badge tone="zinc" className="w-fit">
-              Optional intake channel
-            </Badge>
-            <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Let clients send documents over WhatsApp — on your terms
-            </h2>
+            <SectionHeading className="text-ink-primary">
+              Optional WhatsApp intake -{" "}
+              <BrandHighlight>on your terms</BrandHighlight>
+            </SectionHeading>
             <p className="mt-4 text-base leading-relaxed text-ink-muted">
               For firms whose clients already use messaging, the Client Agent
               runs on your machine, links via QR code, and routes documents into

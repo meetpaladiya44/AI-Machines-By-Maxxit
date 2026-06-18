@@ -13,7 +13,7 @@ const HIGHLIGHTS = [
   "PDF, photos, Excel & CSV",
   "Review every voucher before posting",
   "Direct TallyPrime integration",
-  "Runs on your machine — not the cloud",
+  "Runs on your machine - not the cloud",
 ];
 
 const TRUSTED_INTEGRATIONS = [
@@ -69,7 +69,7 @@ export function Hero() {
           <Reveal direction="up" delay={0.1}>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg">
               From invoices and bank statements to Tally vouchers in minutes, not
-              hours. AI-powered accounting entries — on your premises, straight
+              hours. AI-powered accounting entries - on your premises, straight
               into Tally. Import PDFs, photos, or Excel; review every voucher
               before posting.
             </p>

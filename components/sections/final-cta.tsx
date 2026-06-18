@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookDemoButton } from "@/components/ui/book-demo-button";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { GET_STARTED_HREF } from "@/lib/site-links";
 
 export function FinalCta() {
@@ -20,12 +20,10 @@ export function FinalCta() {
           />
 
           <div className="relative z-10 mx-auto max-w-2xl">
-            <Badge tone="brand" className="mx-auto bg-white/10 text-white ring-white/20">
-              Maxxit Tally System
-            </Badge>
-            <h2 className="mt-6 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Ready to automate your Tally workflow?
-            </h2>
+            <SectionHeading className="text-balance text-white">
+              Maxxit Tally -{" "}
+              <BrandHighlight>ready to automate?</BrandHighlight>
+            </SectionHeading>
             <p className="mt-4 text-balance text-base text-zinc-300 sm:text-lg">
               Install on your premises, connect TallyPrime, and start processing
               purchase, sales, and bank documents with full review before every

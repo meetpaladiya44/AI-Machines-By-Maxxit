@@ -14,7 +14,7 @@ const MCP_POINTS = [
   "Connects directly to your live Tally data",
   "Matches parties and stock items against real masters",
   "Detects document company and suggests company switch",
-  "Builds vouchers from your Tally configuration — not templates",
+  "Builds vouchers from your Tally configuration - not templates",
 ];
 
 export function AiMcp() {

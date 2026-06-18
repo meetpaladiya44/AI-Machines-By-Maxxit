@@ -2,7 +2,6 @@ import {
   AlertTriangle,
   Clock,
   FileX,
-  Repeat,
   AlertCircle,
   TrendingDown,
   Landmark,
@@ -10,48 +9,38 @@ import {
 } from "lucide-react";
 import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 
 const PROBLEMS = [
   {
     icon: Clock,
     title: "Manual entry eats the day",
-    desc: "Accountants spend hours every week typing invoices and bills into Tally — vendor, line items, GST splits, ledgers — again and again.",
+    desc: "Hours spent retyping invoices, GST splits, and ledgers into Tally - every week.",
   },
   {
     icon: FileX,
     title: "Client documents get lost",
-    desc: "Bills sent over WhatsApp, email, or shared drives slip through the cracks. Juniors chase files instead of reconciling books.",
+    desc: "Bills over WhatsApp or email slip through; juniors chase files instead of books.",
   },
   {
     icon: Landmark,
     title: "Bank statements consume mornings",
-    desc: "Hundreds of lines per statement. Each needs the right voucher type, party ledger, and reference — one PDF can take an entire morning.",
-  },
-  {
-    icon: Repeat,
-    title: "Repetitive voucher work at scale",
-    desc: "Same vendors, same ledgers, same tax rates — retyped for every invoice. Month-end multiplies the backlog.",
+    desc: "Hundreds of lines per PDF - voucher type, party, reference - one statement, one morning.",
   },
   {
     icon: AlertCircle,
     title: "Human errors compound",
-    desc: "Wrong amounts, wrong ledgers, wrong GST rates. Fixing reconciliations later costs more than entering correctly the first time.",
+    desc: "Wrong amounts, ledgers, or GST rates - fixes cost more than getting it right first.",
   },
   {
     icon: CloudOff,
     title: "Cloud tools create trust friction",
-    desc: "Many CAs will not upload client financial documents to third-party servers. They need automation that respects confidentiality.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Month-end becomes month-long",
-    desc: "Backlogs pile up, clients wait, and the team is permanently catching up.",
+    desc: "Many CAs won't upload client financials to third-party servers.",
   },
   {
     icon: TrendingDown,
     title: "Hard to scale without hiring",
-    desc: "Adding clients traditionally means more juniors for data entry — eroding margins and consistency.",
+    desc: "More clients traditionally means more juniors for data entry.",
   },
 ];
 
@@ -62,20 +51,17 @@ export function Problem() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="rose" className="mx-auto">
-              The accounting bottleneck
-            </Badge>
-            <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Manual data entry is the silent tax on every CA firm
-            </h2>
+            <SectionHeading className="text-ink-primary">
+              The accounting bottleneck -{" "}
+              <BrandHighlight>manual entry taxes every firm</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-pretty text-ink-muted">
-              Most firms are not slow because accountants lack skill — they are
-              slow because the workflow around Tally is broken.
+              Firms lose time to retyping - not to lack of skill.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PROBLEMS.map((p, i) => {
             const Icon = p.icon;
             return (

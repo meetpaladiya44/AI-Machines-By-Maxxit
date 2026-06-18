@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { Problem } from "@/components/sections/problem";
 import { Solution } from "@/components/sections/solution";
+import { DataFlowAnimation } from "@/components/sections/data-flow-animation";
 import { IdealFor } from "@/components/sections/ideal-for";
 import { DocumentTypes } from "@/components/sections/document-types";
 import { HowItWorks } from "@/components/sections/how-it-works";
@@ -25,22 +26,23 @@ export default function HomePage() {
     <main className="min-h-dvh">
       <Hero />
       <TrustBar />
+      <DataFlowAnimation />
       <Problem />
       <Solution />
+      <Security />
       <IdealFor />
       <DocumentTypes />
-      {/* <HowItWorks /> */}
+      {/* <HowItWorks />
       <Features />
-      <ReviewWorkspace />
+      <ReviewWorkspace /> */}
       <InteractiveDemo />
       <BankStatements />
       <FormatsSupport />
-      <AiMcp />
-      <Security />
+      {/* <AiMcp /> */}
       <ClientAgent />
-      <FirmFeatures />
-      <DashboardOps />
-      <Benefits />
+      {/* <FirmFeatures /> */}
+      {/* <DashboardOps /> */}
+      {/* <Benefits /> */}
       <Testimonials />
       <Faq />
       <FinalCta />

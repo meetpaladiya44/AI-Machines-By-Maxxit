@@ -1,5 +1,5 @@
 import { Check, X } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
 
@@ -47,7 +47,7 @@ const ROWS = [
   {
     dimension: "Data location",
     manual: "Cloud OCR uploads client files",
-    maxxit: "On-premises — documents stay local",
+    maxxit: "On-premises - documents stay local",
   },
 ];
 
@@ -57,12 +57,10 @@ export function Benefits() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="brand" className="mx-auto">
-              Why Maxxit Tally
-            </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Minutes per document — not hours of manual entry
-            </h2>
+            <SectionHeading className="text-balance text-ink-primary">
+              Why Maxxit -{" "}
+              <BrandHighlight>minutes per document</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-balance text-ink-muted">
               The on-premises alternative to cloud OCR and unattended automation.
               Faster than typing. More controlled than auto-posting.

@@ -10,6 +10,7 @@ import {
 import { Reveal } from "@/components/ui/reveal";
 import { Badge } from "@/components/ui/badge";
 import { GradientBlur } from "@/components/ui/gradient-blur";
+import { BrandHighlight } from "@/components/ui/section-heading";
 
 const STEPS = [
   {
@@ -23,11 +24,6 @@ const STEPS = [
     desc: "Purchase, sales, or bank statement — including scanned PDFs and phone photos.",
   },
   {
-    icon: Link2,
-    title: "MCP tools match Tally",
-    desc: "Party, ledger, stock item, and company routing against live masters.",
-  },
-  {
     icon: ClipboardCheck,
     title: "CA reviews side by side",
     desc: "Edit party, items, ledgers, tax — nothing auto-posted.",
@@ -36,12 +32,7 @@ const STEPS = [
     icon: Send,
     title: "One-click post to TallyPrime",
     desc: "Voucher written to the correct company with traceable narration.",
-  },
-  {
-    icon: BarChart3,
-    title: "Track on your machine",
-    desc: "Local post history and dashboard across companies.",
-  },
+  }
 ];
 
 export function Solution() {
@@ -52,12 +43,8 @@ export function Solution() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="emerald" className="mx-auto">
-              The Maxxit Tally workflow
-            </Badge>
             <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              An AI companion that does the repetitive extraction — you approve
-              every post
+              <BrandHighlight>An AI Companion</BrandHighlight> that does the repetitive extraction
             </h2>
             <p className="mt-3 text-pretty text-zinc-600">
               Runs on the CA&apos;s own computer. AI extracts voucher-ready data,

@@ -1,5 +1,5 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { ScreenshotFrame } from "@/components/ui/screenshot-frame";
 import { FEATURE_SCREENSHOTS } from "@/lib/landing-images";
@@ -29,17 +29,14 @@ export function BankStatements() {
           </Reveal>
 
           <Reveal>
-            <Badge tone="brand" className="w-fit">
-              Headline feature
-            </Badge>
-            <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Bank statement processing — line by line, with progress you can
-              track
-            </h2>
+            <SectionHeading className="text-ink-primary">
+              Bank statements -{" "}
+              <BrandHighlight>line by line</BrandHighlight>
+            </SectionHeading>
             <p className="mt-4 text-base leading-relaxed text-ink-muted">
               Upload a bank statement PDF, image, or spreadsheet. AI extracts
               every row; you review ledger assignments and post to Tally when
-              ready — with per-statement completion status on your dashboard.
+              ready - with per-statement completion status on your dashboard.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -83,7 +80,7 @@ export function BankStatements() {
 
         <Reveal delay={0.12}>
           <p className="mt-8 text-center text-sm text-ink-muted">
-            From bank PDF to Tally ledger vouchers — reviewed on your machine,
+            From bank PDF to Tally ledger vouchers - reviewed on your machine,
             posted with traceable narration.
           </p>
         </Reveal>

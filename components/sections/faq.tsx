@@ -3,13 +3,13 @@
 import * as React from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { cn } from "@/lib/utils";
 
 const FAQS = [
   {
     q: "How does Maxxit Tally Software work?",
-    a: "You import documents — purchase invoices, sales invoices, or bank statements — via Bulk Upload or optionally through the Client Agent. AI reads and extracts accounting fields. MCP tools match parties and ledgers against your live Tally data. You review everything in a structured workspace, then post to TallyPrime in one click.",
+    a: "You import documents - purchase invoices, sales invoices, or bank statements - via Bulk Upload or optionally through the Client Agent. AI reads and extracts accounting fields. MCP tools match parties and ledgers against your live Tally data. You review everything in a structured workspace, then post to TallyPrime in one click.",
   },
   {
     q: "What document types are supported?",
@@ -25,11 +25,11 @@ const FAQS = [
   },
   {
     q: "Is posting fully automatic?",
-    a: "No — and that is intentional. Every voucher goes through a review workspace where you verify party, items, ledgers, and tax before posting. This matches how CAs already work — just much faster.",
+    a: "No - and that is intentional. Every voucher goes through a review workspace where you verify party, items, ledgers, and tax before posting. This matches how CAs already work - just much faster.",
   },
   {
     q: "How does bank statement processing work?",
-    a: "Upload a bank statement. AI extracts all transaction rows with opening and closing balances. Each line is classified as Payment, Receipt, or Contra with a suggested ledger. You review, edit, skip, or post lines — with progress tracked per statement.",
+    a: "Upload a bank statement. AI extracts all transaction rows with opening and closing balances. Each line is classified as Payment, Receipt, or Contra with a suggested ledger. You review, edit, skip, or post lines - with progress tracked per statement.",
   },
   {
     q: "Can CA firms manage multiple clients and companies?",
@@ -41,11 +41,11 @@ const FAQS = [
   },
   {
     q: "What are MCP tools and why do they matter?",
-    a: "MCP tools are the automation layer that connects AI extraction to your live Tally data. They look up ledgers, stock items, company details, and voucher templates in real time — so entries are built from your actual Tally configuration, not a generic template.",
+    a: "MCP tools are the automation layer that connects AI extraction to your live Tally data. They look up ledgers, stock items, company details, and voucher templates in real time - so entries are built from your actual Tally configuration, not a generic template.",
   },
   {
     q: "Can clients send documents over WhatsApp?",
-    a: "Yes, with the optional Client Agent. Install the background service, link your WhatsApp, and configure an allowlist of approved client numbers. Documents appear in your review queue — they are not auto-posted.",
+    a: "Yes, with the optional Client Agent. Install the background service, link your WhatsApp, and configure an allowlist of approved client numbers. Documents appear in your review queue - they are not auto-posted.",
   },
   {
     q: "How do firm teams work?",
@@ -65,14 +65,11 @@ export function Faq() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center">
-            <Badge tone="brand" className="mx-auto">
-              FAQ
-            </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Answers accounting leaders ask early
-            </h2>
+            <SectionHeading className="text-balance text-ink-primary">
+              FAQs
+            </SectionHeading>
             <p className="mt-3 text-balance text-ink-muted">
-              Still curious? Request a demo and bring your edge cases — we
+              Still curious? Request a demo and bring your edge cases - we
               obsess over the long tail of vouchers.
             </p>
           </div>

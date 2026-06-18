@@ -14,7 +14,7 @@ const CALLOUTS = [
   {
     icon: Pencil,
     title: "Editable everything",
-    desc: "Party, items, quantities, rates, tax amounts, and ledger allocations — all editable before post.",
+    desc: "Party, items, quantities, rates, tax amounts, and ledger allocations - all editable before post.",
   },
   {
     icon: ShieldAlert,
@@ -51,7 +51,7 @@ export function ReviewWorkspace() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-ink-muted">
               Nothing is silently auto-posted. The review workspace shows your
-              original document beside structured extracted fields — the same
+              original document beside structured extracted fields - the same
               check you already do, in minutes instead of hours.
             </p>
 
@@ -78,7 +78,7 @@ export function ReviewWorkspace() {
 
             <p className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-brand-green">
               <CheckCircle2 className="h-4 w-4" />
-              One-click post to TallyPrime — after your review
+              One-click post to TallyPrime - after your review
             </p>
           </Reveal>
 

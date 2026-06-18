@@ -10,8 +10,8 @@ import { GET_STARTED_HREF, SIGN_IN_HREF } from "@/lib/site-links";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
+  { label: "How it works", href: "#data-flow" },
+  { label: "Features", href: "#document-types" },
   { label: "Security", href: "#security" },
   { label: "FAQ", href: "#faq" },
 ];

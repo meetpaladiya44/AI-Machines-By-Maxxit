@@ -128,7 +128,7 @@ export function FileFormatFlow({
 
       {showCaption ? (
         <p className="mt-3 max-w-lg text-center text-xs leading-relaxed text-zinc-500 sm:text-sm">
-          AI reads PDFs, images, and spreadsheets — extracts structured
+          AI reads PDFs, images, and spreadsheets - extracts structured
           voucher-ready fields (JSON) for Tally matching and review. No generic
           templates.
         </p>

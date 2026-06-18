@@ -34,7 +34,7 @@ export function FirmFeatures() {
               Firm & team
             </Badge>
             <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Built for CA firms — team workspaces and roles
+              Built for CA firms - team workspaces and roles
             </h2>
             <p className="mt-3 text-pretty text-ink-muted">
               Set up your workspace for personal use or your CA firm. Manage

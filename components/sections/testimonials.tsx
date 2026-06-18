@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { cn } from "@/lib/utils";
 
 const TESTIMONIALS = [
@@ -59,14 +59,12 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="rose" className="mx-auto">
-              Testimonials
-            </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              Teams shipping faster closes with AI Machines by Maxxit
-            </h2>
+            <SectionHeading className="text-balance text-zinc-900">
+              Testimonials -{" "}
+              <BrandHighlight>faster closes</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-balance text-zinc-600">
-              Synthetic quotes for layout purposes — swap in verified customer
+              Synthetic quotes for layout purposes - swap in verified customer
               stories when ready.
             </p>
           </div>

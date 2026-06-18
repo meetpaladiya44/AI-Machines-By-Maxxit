@@ -33,7 +33,7 @@ const ADDON_STEPS = [
   {
     step: 2,
     title: "Choose date range + folder",
-    desc: "Select from/to dates and an export folder — no need to enter a PDF filename per invoice.",
+    desc: "Select from/to dates and an export folder - no need to enter a PDF filename per invoice.",
     img: "/images/AddOn-Date-Selection.png",
     alt: "Add-on screen showing date range and export folder selection",
     tone: "violet" as const,
@@ -42,7 +42,7 @@ const ADDON_STEPS = [
   {
     step: 3,
     title: "Bulk PDFs generated",
-    desc: "Tally exports all eligible sales invoices into a folder in one run — perfect for month-end packs.",
+    desc: "Tally exports all eligible sales invoices into a folder in one run - perfect for month-end packs.",
     img: "/images/AddOn-Downloaded-Bulk-PDFs.png",
     alt: "Folder view showing many exported invoice PDFs",
     tone: "sky" as const,
@@ -82,11 +82,11 @@ export function Features() {
               TDL add-on and other features
             </Badge>
             <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              Bulk Sales Invoice PDF Export — inside Tally
+              Bulk Sales Invoice PDF Export - inside Tally
             </h2>
             <p className="mt-3 text-balance text-zinc-600">
               Tally typically exports invoices one PDF at a time. Our TDL (Tally
-              Definition Language) add-on enables bulk exports to a folder —
+              Definition Language) add-on enables bulk exports to a folder -
               built for audits, client sharing, and month-end packs.
             </p>
           </div>
@@ -244,19 +244,19 @@ export function Features() {
           {[
             {
               title: "Beyond one-by-one exports",
-              desc: "Generate many invoice PDFs in one run — ideal for audits and client packs.",
+              desc: "Generate many invoice PDFs in one run - ideal for audits and client packs.",
               icon: FileOutput,
               tone: "violet" as const,
             },
             {
               title: "Works with Tally workflows",
-              desc: "Lives inside Tally as a TDL add-on — no new portal for your team to learn.",
+              desc: "Lives inside Tally as a TDL add-on - no new portal for your team to learn.",
               icon: PlugZap,
               tone: "emerald" as const,
             },
             {
               title: "On-prem execution",
-              desc: "Runs on your local system — no need to send invoices to third-party cloud servers.",
+              desc: "Runs on your local system - no need to send invoices to third-party cloud servers.",
               icon: HardDrive,
               tone: "sky" as const,
             },

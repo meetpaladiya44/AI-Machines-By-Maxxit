@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
+import { useInView, useReducedMotion } from "framer-motion";
 import { FileInput, ShoppingCart, Landmark } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { cn } from "@/lib/utils";
 import { FEATURE_SCREENSHOTS } from "@/lib/landing-images";
 import { ScreenshotFrame } from "@/components/ui/screenshot-frame";
@@ -17,7 +18,7 @@ const TYPES = [
     desc: "Read vendor bills from PDFs, scans, or spreadsheets. Map to Sundry Creditor ledgers, split GST, and post Purchase vouchers after review.",
     href: "#review-workspace",
     image: FEATURE_SCREENSHOTS.purchaseInvoice,
-    frameLabel: "Maxxit Tally — Purchase Invoice",
+    frameLabel: "Maxxit Tally - Purchase Invoice",
   },
   {
     id: "sales",
@@ -35,28 +36,47 @@ const TYPES = [
     desc: "Extract every transaction row. Classify Payment, Receipt, and Contra lines, suggest ledgers from narration, and track progress per statement.",
     href: "#bank-statements",
     image: FEATURE_SCREENSHOTS.bankStatementReview,
-    frameLabel: "Maxxit Tally — Bank Statement",
+    frameLabel: "Maxxit Tally - Bank Statement",
   },
 ] as const;
 
+const ROTATION_ORDER = TYPES.map((type) => type.id);
+
 export function DocumentTypes() {
-  const [active, setActive] = React.useState<(typeof TYPES)[number]["id"]>("bank");
-  const current = TYPES.find((t) => t.id === active) ?? TYPES[2];
+  const rootRef = React.useRef<HTMLElement | null>(null);
+  const inView = useInView(rootRef, { amount: 0.25, once: false });
+  const reduce = useReducedMotion();
+  const [active, setActive] = React.useState<(typeof TYPES)[number]["id"]>("purchase");
+  const current = TYPES.find((t) => t.id === active) ?? TYPES[0];
+
+  React.useEffect(() => {
+    if (reduce) return;
+    if (!inView) return;
+    const id = window.setInterval(() => {
+      setActive((currentId) => {
+        const idx = ROTATION_ORDER.indexOf(currentId);
+        return ROTATION_ORDER[(idx + 1) % ROTATION_ORDER.length];
+      });
+    }, 1500);
+    return () => window.clearInterval(id);
+  }, [inView, reduce]);
 
   return (
-    <section id="document-types" className="relative py-20 sm:py-24">
+    <section
+      id="document-types"
+      ref={rootRef}
+      className="relative py-20 sm:py-24"
+    >
       <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-linear-to-b from-brand-green/5 via-surface-page to-transparent" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="brand" className="mx-auto">
-              Core document types
-            </Badge>
-            <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-ink-primary sm:text-4xl">
-              Purchase. Sales. Bank statements.
-            </h2>
+            <SectionHeading className="text-ink-primary">
+              Core document types -{" "}
+              <BrandHighlight>purchase, sales, bank</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-pretty text-ink-muted">
-              Three headline workflows with equal weight — not an afterthought
+              Three headline workflows with equal weight - not an afterthought
               buried in a generic features list.
             </p>
           </div>
@@ -86,7 +106,7 @@ export function DocumentTypes() {
         </div>
 
         <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <Reveal key={current.id}>
+          <Reveal>
             <div>
               <h3 className="text-2xl font-semibold tracking-tight text-ink-primary">
                 {current.title}
@@ -129,7 +149,7 @@ export function DocumentTypes() {
               label={
                 "frameLabel" in current && current.frameLabel
                   ? current.frameLabel
-                  : "Maxxit Tally — Review Workspace"
+                  : "Maxxit Tally - Review Workspace"
               }
             />
           </Reveal>

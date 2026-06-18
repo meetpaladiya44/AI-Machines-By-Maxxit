@@ -13,7 +13,7 @@ const STEPS = [
     step: 1,
     label: "Receive",
     title: "Import documents via Bulk Upload",
-    desc: "Drop PDFs, photos, or spreadsheets — or receive them through the optional Client Agent. Queue multiple files per company.",
+    desc: "Drop PDFs, photos, or spreadsheets - or receive them through the optional Client Agent. Queue multiple files per company.",
     image: null,
   },
   {
@@ -27,7 +27,7 @@ const STEPS = [
     step: 3,
     label: "Extract",
     title: "Structured accounting fields extracted",
-    desc: "Parties, dates, GSTIN, line items, tax splits, or bank transaction rows — voucher-ready data, not raw OCR text.",
+    desc: "Parties, dates, GSTIN, line items, tax splits, or bank transaction rows - voucher-ready data, not raw OCR text.",
     image: null,
   },
   {
@@ -77,7 +77,7 @@ export function HowItWorks() {
               Import → Extract → Review → Post
             </h2>
             <p className="mt-3 text-pretty text-ink-muted">
-              Bulk Upload is step one — not a WhatsApp message. Human review is
+              Bulk Upload is step one - not a WhatsApp message. Human review is
               built in, not bolted on.
             </p>
           </div>
@@ -135,7 +135,7 @@ export function HowItWorks() {
                 width={step.image.width}
                 height={step.image.height}
                 showBrowserChrome
-                label={`Step ${step.step} — ${step.label}`}
+                label={`Step ${step.step} - ${step.label}`}
               />
             ) : (
               <div className="flex h-full min-h-[320px] flex-col justify-center rounded-2xl border border-dashed border-border-subtle bg-white/80 p-8">

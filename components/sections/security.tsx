@@ -3,49 +3,35 @@ import {
   BadgeCheck,
   Building2,
   ShieldCheck,
-  UserCheck,
-  ClipboardList,
 } from "lucide-react";
 import { Card, CardIcon } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 
 const ITEMS = [
   {
     title: "On-premises by design",
-    desc: "Uploaded files, extracted review data, and post history stay on your local system. Client documents are not stored on third-party cloud servers.",
+    desc: "Files, extracted data, and post history stay on your local system - not third-party cloud.",
     icon: HardDrive,
     tone: "emerald" as const,
   },
   {
     title: "Human-in-the-loop review",
-    desc: "Every voucher goes through a structured review workspace. Nothing is silently auto-posted — review is a feature, not a limitation.",
+    desc: "Every voucher goes through review - nothing is silently auto-posted.",
     icon: BadgeCheck,
     tone: "sky" as const,
   },
   {
     title: "Company matching guards",
-    desc: "Detects which Tally company a document belongs to and blocks posting when active company does not match.",
+    desc: "Detects the right Tally company and blocks posting when active company mismatches.",
     icon: Building2,
     tone: "amber" as const,
   },
   {
     title: "GSTIN reconciliation",
-    desc: "Flags when invoice GSTIN differs from ledger GSTIN. You choose how to proceed before any voucher is posted.",
+    desc: "Flags invoice vs ledger GSTIN mismatches before any voucher is posted.",
     icon: ShieldCheck,
     tone: "rose" as const,
-  },
-  {
-    title: "Client Agent allowlist",
-    desc: "Only pre-approved phone numbers can send documents via messaging. Unknown senders queue for your approval.",
-    icon: UserCheck,
-    tone: "zinc" as const,
-  },
-  {
-    title: "Local audit trail",
-    desc: "Posted transaction history with Tally reconciliation status — verified, posted, or not found — on your machine.",
-    icon: ClipboardList,
-    tone: "emerald" as const,
   },
 ];
 
@@ -59,24 +45,18 @@ export function Security() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge
-              tone="brand"
-              className="mx-auto bg-white/10 text-white ring-white/20"
-            >
-              On-premises & safeguards
-            </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-              Your data stays on your machine
-            </h2>
+            <SectionHeading className="text-balance text-white">
+              On-premises & safe -{" "}
+              <BrandHighlight>data stays on your machine</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-balance text-zinc-400">
-              TallyPrime remains your system of record. Maxxit Tally processes
-              documents locally and gives you control at every step — built for
-              regulated professionals who cannot send client books to the cloud.
+              TallyPrime stays your system of record - Maxxit processes locally
+              and keeps you in control at every step.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2">
           {ITEMS.map((item, i) => {
             const Icon = item.icon;
             return (

@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { CheckCircle2, FileText, Loader2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { BrandHighlight, SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ const CHAT: { role: "client" | "ai"; id: string; content: React.ReactNode }[] =
       id: "msg-2",
       content: (
         <>
-          <p>Invoice received ✓ — your CA will process it shortly.</p>
+          <p>Invoice received ✓ - your CA will process it shortly.</p>
           <p className="mt-1 text-xs text-zinc-500">Powered by Maxxit</p>
         </>
       ),
@@ -51,7 +51,7 @@ const CHAT: { role: "client" | "ai"; id: string; content: React.ReactNode }[] =
       role: "ai",
       id: "msg-7",
       content:
-        "[PDF: invoice_G-207.pdf — GST invoice generated from Tally data]",
+        "[PDF: invoice_G-207.pdf - GST invoice generated from Tally data]",
     },
   ];
 
@@ -103,12 +103,10 @@ export function InteractiveDemo() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
-            <Badge tone="emerald" className="mx-auto">
-              Interactive preview
-            </Badge>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-              See the journey from WhatsApp to Tally — end to end
-            </h2>
+            <SectionHeading className="text-balance text-zinc-900">
+              Interactive preview -{" "}
+              <BrandHighlight>WhatsApp to Tally</BrandHighlight>
+            </SectionHeading>
             <p className="mt-3 text-balance text-zinc-600">
               A live-feeling walkthrough of how AI Machines by Maxxit processes
               a real document on your hardware and hands you a ready-to-share
@@ -239,7 +237,7 @@ export function InteractiveDemo() {
                   />
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-zinc-500">
-                  On-device AI — WhatsApp as your front door, Tally as your
+                  On-device AI - WhatsApp as your front door, Tally as your
                   system of record. Your data stays on your machines.
                 </p>
               </div>
@@ -312,7 +310,7 @@ export function InteractiveDemo() {
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <div className="text-sm font-semibold text-zinc-900">
-                      Sales invoices — February (bulk export)
+                      Sales invoices - February (bulk export)
                     </div>
                     <div className="mt-1 text-xs text-zinc-600">
                       Bulk PDF export enabled via our TDL add-on (Tally normally exports one PDF at a time).
