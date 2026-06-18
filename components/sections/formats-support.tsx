@@ -110,7 +110,7 @@ export function FormatsSupport() {
       className="relative border-y border-border-subtle/80 bg-white py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
+        <Reveal once={false}>
           <div className="mx-auto max-w-2xl text-center">
             <SectionHeading className="text-ink-primary">
               Supported formats -{" "}
@@ -123,7 +123,7 @@ export function FormatsSupport() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} once={false}>
           <div className="pipeline-glow-border mt-10">
             <div className="pipeline-glow-inner relative overflow-hidden bg-surface-page/80 px-6 py-10">
               <GridPattern className="text-zinc-300/50" size={28} />
@@ -140,7 +140,7 @@ export function FormatsSupport() {
             const direction = i % 2 === 0 ? "left" : "right";
 
             return (
-              <Reveal key={note.title} delay={i * 0.05} direction={direction}>
+              <Reveal key={note.title} delay={i * 0.05} direction={direction} once={false}>
                 <Card
                   className={cn(
                     "group relative h-full overflow-hidden ring-1 transition-all duration-300",

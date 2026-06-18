@@ -42,7 +42,7 @@ export function Solution() {
       <GradientBlur variant="soft" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
+        <Reveal once={false}>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
               <BrandHighlight>An AI Companion</BrandHighlight> that does the repetitive extraction
@@ -56,7 +56,7 @@ export function Solution() {
         </Reveal>
 
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-          <Reveal direction="right">
+          <Reveal direction="right" once={false}>
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-emerald-200/40 via-violet-200/30 to-rose-200/30 blur-2xl" />
               <div className="relative overflow-hidden rounded-3xl border border-zinc-200/70 bg-zinc-950 p-3 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.25)]">
@@ -102,7 +102,7 @@ export function Solution() {
             </div>
           </Reveal>
 
-          <Reveal direction="left" delay={0.05}>
+          <Reveal direction="left" delay={0.05} once={false}>
             <ol className="relative space-y-5 lg:pl-2">
               {STEPS.map((s, i) => {
                 const Icon = s.icon;
